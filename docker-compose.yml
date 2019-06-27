@@ -10,15 +10,6 @@ services:
     depends_on:
       - db
       - chrome
-  worker:
-    build: .
-    volumes:
-      - .:/app
-    depends_on:
-      - redis
-    command: sidekiq
-  redis:
-    image: redis:latest
   smtp:
     image: schickling/mailcatcher
     ports:
@@ -43,14 +34,6 @@ services:
     volumes:
       - db-volume:/var/lib/mysql
     environment:
-      MYSQL_DATABASE: taskleaf_production
-      MYSQL_USER: taskleaf
-      MYSQL_PASSWORD: taskleaf
-      # MYSQL_ROOT_PASSWORD: password
-      # MYSQL_DATABASE: app_development
-      # MYSQL_USER: root
-      # MYSQL_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: hoge
 volumes:
   db-volume:
-  redis:
-    driver: local
