@@ -9,17 +9,24 @@ format of creating docker and rails
 
  $ docker-compose run web rails new . --force --database=mysql
 
+3. do docker-compose build
+
+ $ docker-compose build
  
-3. fix database.yml
+4. fix database.yml
 
   default: &default
   adapter: mysql2
   encoding: utf8
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: root
-  password: hoge # root password of docker-compose.yml
-  host: db 
+  password: hoge <= root password of docker-compose.yml
+  host: db <= change localhost to db
 
-4. create db
+5. create db
 
 $ docker-compose run web rails db:create
+
+6. docker-compose up
+
+finish!!!
