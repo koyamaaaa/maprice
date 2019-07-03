@@ -20,7 +20,7 @@ format of creating docker and rails
   encoding: utf8
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: root
-  password: hoge <= root password of docker-compose.yml
+  password: password
   host: db <= change localhost to db
 
 5. create db
