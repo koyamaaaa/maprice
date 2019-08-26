@@ -1,32 +1,24 @@
-# format_docker_rails
-format of creating docker and rails
+# README
 
-1. git clone this some directory 
+This README would normally document whatever steps are necessary to get the
+application up and running.
 
- $ git clone https://github.com/koyamaaaa/format_docker_rails.git
+Things you may want to cover:
 
-2. do rails new
+* Ruby version
 
- $ docker-compose run web rails new . --force --database=mysql
+* System dependencies
 
-3. do docker-compose build
+* Configuration
 
- $ docker-compose build
- 
-4. fix database.yml
+* Database creation
 
-  default: &default
-  adapter: mysql2
-  encoding: utf8
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: root
-  password: password
-  host: db <= change localhost to db
+* Database initialization
 
-5. create db
+* How to run the test suite
 
-$ docker-compose run web rails db:create
+* Services (job queues, cache servers, search engines, etc.)
 
-6. docker-compose up
+* Deployment instructions
 
-finish!!!
+* ...
