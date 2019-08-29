@@ -10,12 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_27_140746) do
+ActiveRecord::Schema.define(version: 2019_08_27_143734) do
+
+  create_table "plans", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "plan_id", null: false
+    t.string "name"
+    t.integer "provider_id", null: false
+    t.integer "line_id", null: false
+    t.integer "lineplan_id", null: false
+    t.text "plan_outline"
+    t.integer "construct_period"
+    t.integer "total_fee"
+    t.integer "plan_device_fee"
+    t.integer "cancel_charge"
+    t.integer "campaign_id", null: false
+    t.integer "device_id", null: false
+    t.integer "option_id", null: false
+    t.text "plan_url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "providers", primary_key: "provider_id", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.bigint "{:foreign_key=>true}_id"
+    t.index ["{:foreign_key=>true}_id"], name: "index_providers_on_{:foreign_key=>true}_id"
   end
 
 end
