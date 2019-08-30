@@ -10,10 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_27_143734) do
+ActiveRecord::Schema.define(version: 2019_08_29_141901) do
 
   create_table "plans", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "plan_id", null: false
+    t.integer "id", null: false
     t.string "name"
     t.integer "provider_id", null: false
     t.integer "line_id", null: false
@@ -29,9 +29,11 @@ ActiveRecord::Schema.define(version: 2019_08_27_143734) do
     t.text "plan_url"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.bigint "providers_id"
+    t.index ["providers_id"], name: "index_plans_on_providers_id"
   end
 
-  create_table "providers", primary_key: "provider_id", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "providers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
