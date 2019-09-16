@@ -1,0 +1,7 @@
+<%= form_with model: @provider, method: :post do |f| %>
+  <%= f.text_field :name %>
+    <%= f.fields_for :net_lines do |net_line| %>
+      <%= net_line.collection_sellect :provider, :net_line_id, Netline.all, :id, :name %>
+    <% end %>
+  <%= f.submit %>
+<% end %>

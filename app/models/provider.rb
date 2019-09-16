@@ -1,4 +1,9 @@
 class Provider < ApplicationRecord
-  self.primary_key = "provider_id"
   validates :name , uniqueness: true
+
+  with_options presence: true do
+    validates :name
+    validates :net_line_id
+  end
+
 end

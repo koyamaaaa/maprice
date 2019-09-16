@@ -1,0 +1,15 @@
+<%= form_with model: @plan_new, method: :post do |f| %>
+  <%= f.text_field :name %>
+  <%= f.text_field :provider_id %>
+  <%= f.text_field :outline %>
+  <%= f.text_field :net_line_id %>
+  <%= f.text_field :plan_outline %>
+  <%= f.text_field :construct_period %>
+  <%= f.text_field :total_fee %>
+  <%= f.text_field :plan_device_fee %>
+  <%= f.text_field :campaign_id %>
+  <%= f.text_field :device_id %>
+  <%= f.text_field :option_id %>
+  <%= f.text_field :plan_url %>
+  <%= f.submit %>
+<% end %>
