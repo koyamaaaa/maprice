@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_18_132504) do
+ActiveRecord::Schema.define(version: 2019_09_18_133423) do
 
   create_table "campaigns", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -58,8 +58,10 @@ ActiveRecord::Schema.define(version: 2019_09_18_132504) do
     t.bigint "service_id"
     t.bigint "data_capacity_id"
     t.bigint "provider_id"
+    t.index ["campaign_id"], name: "fk_rails_2dd293748a"
     t.index ["data_capacity_id"], name: "index_plans_on_data_capacity_id"
     t.index ["net_line_id"], name: "index_plans_on_net_line_id"
+    t.index ["plan_device_id"], name: "fk_rails_17f43c7d24"
     t.index ["provider_id"], name: "index_plans_on_provider_id"
     t.index ["service_id"], name: "index_plans_on_service_id"
   end
@@ -87,8 +89,10 @@ ActiveRecord::Schema.define(version: 2019_09_18_132504) do
 
   add_foreign_key "devices", "services"
   add_foreign_key "net_lines", "services"
+  add_foreign_key "plans", "campaigns"
   add_foreign_key "plans", "data_capacities"
   add_foreign_key "plans", "net_lines"
+  add_foreign_key "plans", "plans_devices", column: "plan_device_id"
   add_foreign_key "plans", "providers"
   add_foreign_key "plans", "services"
   add_foreign_key "providers", "services"
