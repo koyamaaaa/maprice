@@ -1,10 +1,9 @@
-<% flash[:alert] if flash[:alert] %>
-<%= form_with model: @provider, method: :post do |f| %>
-  <%= f.label :name, 'プロバイダ名' %>
+<%= form_with model: @net_line, method: :post do |f| %>
+  <%= f.label :name, '回線名' %>
   <%= f.text_field :name %>
 
   <%= f.label :service_id, 'サービス名' %>
   <%= f.collection_select :service_id, Service.all, :id, :name %>
-  
+
   <%= f.submit %>
 <% end %>

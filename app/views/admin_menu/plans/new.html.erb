@@ -1,15 +1,36 @@
-<%= form_with model: @plan_new, method: :post do |f| %>
+<%= form_with model: @plan, method: :post do |f| %>
+  <%= f.label :name, 'プラン名' %>
   <%= f.text_field :name %>
-  <%= f.text_field :provider_id %>
-  <%= f.text_field :outline %>
-  <%= f.text_field :net_line_id %>
-  <%= f.text_field :plan_outline %>
+
+  <%= f.label :p_content, 'プラン内容' %>
+  <%= f.text_field :p_content %>
+
+  <%= f.label :construct_period, '契約期間' %>
   <%= f.text_field :construct_period %>
+
+  <%= f.label :total_fee, '合計金額' %>
   <%= f.text_field :total_fee %>
+
+  <%= f.label :plan_device_fee, '端末代金' %>
   <%= f.text_field :plan_device_fee %>
-  <%= f.text_field :campaign_id %>
-  <%= f.text_field :device_id %>
-  <%= f.text_field :option_id %>
+
+  <%= f.label :plan_url, 'リンクURL' %>
   <%= f.text_field :plan_url %>
+
+  <%= f.label :campaign_id, 'キャンペーンID' %>
+  <%= f.text_field :campaign_id %>
+
+  <%= f.label :net_line_id %>
+  <%= f.text_field :net_line_id %>
+
+  <%= f.label :service_id %>
+  <%= f.text_field :service_id %>
+
+  <%= f.label :data_capacity_id %>
+  <%= f.text_field :data_capacity_id %>
+
+  <%= f.label :provider_id %>
+  <%= f.collection_select :provider, Provider.all, :id, :name %>
+
   <%= f.submit %>
 <% end %>

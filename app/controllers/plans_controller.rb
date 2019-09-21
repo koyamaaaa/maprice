@@ -5,12 +5,16 @@ class PlansController < ActionController::Base
 
   def new
     @plan = Plan.new
+    render new_plan_path
   end
 
   def create
-    @plan = Plan.new(name: params[:name])
-    @plan.save
-    redirect_to plan_path
+    @plan = Plan.new(plan_params)
+    if @plan.save
+      redirect_to @plan
+    else
+      render new_plan_path
+    end
   end
 
   def show
@@ -20,6 +24,16 @@ class PlansController < ActionController::Base
   end
 
   def destroy
+  end
+
+  private
+
+  def plan_params
+    params.require(:plan).permit(:name, :p_content, :construct_period,
+                                 :total_fee, :plan_device_fee, :plan_url,
+                                 :campaign_id, :plan_device_id, :net_line_id,
+                                 :service_id, :data_capacity_id, :provider_id
+                                )
   end
 
 end

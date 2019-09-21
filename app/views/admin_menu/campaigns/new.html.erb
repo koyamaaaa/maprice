@@ -1,0 +1,13 @@
+<%= form_with model: @campaign, method: :post do |f| %>
+  <%= f.label :name, 'キャンペーン名' %>
+  <%= f.text_field :name %>
+
+  <%= f.label :cp_content, 'キャンペーン内容' %>
+  <%= f.text_field :cp_content %>
+
+  <%= f.label :provider_id, 'プロバイダー' %>
+  <%= f.collection_select :provider_id, Provider.all, :id, :name %>
+
+  <%= f.submit %>
+<% end %>
+  

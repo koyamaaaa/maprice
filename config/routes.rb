@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   
   # admin_menuルーティング
   scope '/admin_menu' do
-    resources :plans, :providers
+    resources :plans, :providers, :net_lines,
+              :services, :devices, :data_capacities,
+              :campaigns
   end
 
 end

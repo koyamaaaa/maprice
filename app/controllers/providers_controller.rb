@@ -10,8 +10,7 @@ class ProvidersController < ActionController::Base
   end
 
   def create
-    @provider = Provider.new(name:        params[:provider][:name],
-                             net_line_id: params[:provider][:net_line_ie])
+    @provider = Provider.new(provider_params)
     if @provider.save
       redirect_to @provider
     else
@@ -24,5 +23,9 @@ class ProvidersController < ActionController::Base
   end
 
   def destroy
+  end
+
+  def provider_params
+    params.require(:provider).permit(:name, :service_id)
   end
 end

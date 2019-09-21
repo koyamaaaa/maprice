@@ -1,0 +1,2 @@
+class NetLine < ApplicationRecord
+end

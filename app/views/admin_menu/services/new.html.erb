@@ -1,0 +1,6 @@
+<%= form_with model: @service, method: :post do |f| %>
+  <%= f.label :name, 'サービス名' %>
+  <%= f.text_field :name %>
+
+  <%= f.submit %>
+<% end %>

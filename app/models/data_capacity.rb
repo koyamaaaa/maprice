@@ -1,0 +1,2 @@
+class DataCapacity < ApplicationRecord
+end

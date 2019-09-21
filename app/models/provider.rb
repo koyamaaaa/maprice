@@ -3,7 +3,6 @@ class Provider < ApplicationRecord
 
   with_options presence: true do
     validates :name
-    validates :net_line_id
   end
 
 end
