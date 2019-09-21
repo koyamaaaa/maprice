@@ -1,5 +1,5 @@
 <%= form_with model: @plan, method: :post do |f| %>
-  <%= f.label :name, 'プラン名' %>
+  <%= f.label :name, 'プラン' %>
   <%= f.text_field :name %>
 
   <%= f.label :p_content, 'プラン内容' %>
@@ -17,20 +17,20 @@
   <%= f.label :plan_url, 'リンクURL' %>
   <%= f.text_field :plan_url %>
 
-  <%= f.label :campaign_id, 'キャンペーンID' %>
-  <%= f.text_field :campaign_id %>
+  <%= f.label :campaign_id, 'キャンペーン' %>
+  <%= f.collection_select :campaign_id, Campaign.all, :id, :name %>
 
   <%= f.label :net_line_id %>
-  <%= f.text_field :net_line_id %>
+  <%= f.collection_select :net_line_id, NetLine.all, :id, :name %>
 
   <%= f.label :service_id %>
-  <%= f.text_field :service_id %>
+  <%= f.collection_select :service_id, Service.all, :id, :name %>
 
   <%= f.label :data_capacity_id %>
-  <%= f.text_field :data_capacity_id %>
+  <%= f.collection_select :data_capacity_id, DataCapacity.all, :id, :name %>
 
   <%= f.label :provider_id %>
-  <%= f.collection_select :provider, Provider.all, :id, :name %>
+  <%= f.collection_select :provider_id, Provider.all, :id, :name %>
 
   <%= f.submit %>
 <% end %>
