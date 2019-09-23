@@ -1,6 +1,9 @@
 class PlansController < ActionController::Base
 
   def index
+    @plans = Plan.all
+    @campaigns = @plans.campaign.all
+    render '/admin_menu/plans'
   end
 
   def new
@@ -18,6 +21,9 @@ class PlansController < ActionController::Base
   end
 
   def show
+  end
+
+  def edit
   end
 
   def update
