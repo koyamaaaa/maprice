@@ -1,6 +1,8 @@
 class NetLinesController < ActionController::Base
 
   def index
+    @net_lines = NetLine.all.includes()
+    render '/admin_menu/net_lines/index'
   end
 
   def new

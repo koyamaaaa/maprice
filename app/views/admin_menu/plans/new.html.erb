@@ -1,4 +1,5 @@
 <%= form_with model: @plan, method: :post do |f| %>
+
   <%= f.label :name, 'プラン' %>
   <%= f.text_field :name %>
 
@@ -31,6 +32,9 @@
 
   <%= f.label :provider_id %>
   <%= f.collection_select :provider_id, Provider.all, :id, :name %>
+
+  <%= f.label :device_ids %>
+  <%= collection_check_boxes :plan, :device_ids, Device.all, :id, :name %>
 
   <%= f.submit %>
 <% end %>
