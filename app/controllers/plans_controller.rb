@@ -23,9 +23,17 @@ class PlansController < ActionController::Base
   end
 
   def edit
+    @plan = Plan.find(params[:id])
+    render '/admin_menu/plans/edit'
   end
 
   def update
+    @plan = Plan.find(params[:id])
+    if @plan.update_attributes(plan_params)
+      redirect_to @plan
+    else
+      render '/admin_menu/plans/edit'
+    end
   end
 
   def destroy
