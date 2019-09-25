@@ -20,6 +20,8 @@ class PlansController < ActionController::Base
   end
 
   def show
+    @plan = Plan.find(params[:id])
+    render '/admin_menu/plans/show'
   end
 
   def edit

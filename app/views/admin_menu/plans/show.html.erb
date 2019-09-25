@@ -1,0 +1,15 @@
+<div>
+  <p>ID：<%= @plan.id %></p>
+  <p>プラン：<%= @plan.name %></p>
+  <p>プラン内容：<%= @plan.p_content %></p>
+  <p>契約期間：<%= @plan.construct_period %></p>
+  <p>総合計金額：<%= @plan.total_fee %></p>
+  <p>端末代金：<%= @plan.plan_device_fee %></p>
+  <p>URL：<%= @plan.plan_url %></p>
+  <p>キャンペーン：<%= @plan.campaign.name %></p>
+  <p>データ通信量：<%= @plan.data_capacity.name %></p>
+  <p>プロバイダー：<%= @plan.provider.name %></p>
+  <% @plan.plans_devices.each do |plan_devices| %>
+    <p>端末：　<%= plan_devices.device.name %></p>
+  <% end %>
+</div>
