@@ -1,0 +1,8 @@
+<div>
+  <%= @campaigns.each do |campaign| %>
+    <p>ID：<%= campaign.id %></p>
+    <p>キャンペーン：<%= campaign.name %></p>
+    <p>キャンペーン内容：<%= campaign.cp_content %></p>
+    <p>プロバイダー：<%= campaign.provider.name %></p>
+  <% end %>
+</div>

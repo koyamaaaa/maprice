@@ -19,7 +19,23 @@ class ProvidersController < ActionController::Base
     end
   end
 
+  def show
+    @provider = Provider.find(params[:id])
+    render '/admin_menu/providers/show'
+  end
+
+  def edit
+    @provider = Provider.find(params[:id])
+    render '/admin_menu/providers/edit'
+  end
+
   def update
+    @provider = Provider.find(params[:id])
+    if @provider.update_attributes(provider_params)
+      redirect_to @provider
+    else
+      render '/admin_menu/data_capacities/edit'
+    end
   end
 
   def destroy

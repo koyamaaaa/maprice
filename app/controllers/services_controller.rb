@@ -1,6 +1,8 @@
 class ServicesController < ActionController::Base
 
   def index
+    @services = Service.all
+    render '/admin_menu/services/index'
   end
 
   def new
@@ -18,9 +20,22 @@ class ServicesController < ActionController::Base
   end
 
   def show
+    @service = Service.find(params[:id])
+    render '/admin_menu/services/show'
+  end
+
+  def edit
+    @service = Service.find(params[:id])
+    render '/admin_menu/services/edit'
   end
 
   def update
+    @service = Service.find(params[:id])
+    if @service.update_attributes(service_params)
+      redirect_to @service
+    else
+      render '/admin_menu/services/edit'
+    end 
   end
 
   def destroy

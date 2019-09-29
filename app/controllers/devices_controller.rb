@@ -19,7 +19,23 @@ class DevicesController < ActionController::Base
     end
   end
 
+  def show
+    @device = Device.find(params[:id])
+    render '/admin_menu/devices/show'
+  end
+
+  def edit
+    @device = Device.find(params[:id])
+    render '/admin_menu/devices/edit'
+  end
+
   def update
+    @device = Device.find(params[:id])
+    if @device.update_attributes(device_params)
+      redirect_to @device
+    else
+      render '/admin_menu/devices/edit'
+    end
   end
 
   def destroy

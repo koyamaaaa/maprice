@@ -1,7 +1,7 @@
 class NetLinesController < ActionController::Base
 
   def index
-    @net_lines = NetLine.all.includes()
+    @net_lines = NetLine.all
     render '/admin_menu/net_lines/index'
   end
 
@@ -20,9 +20,22 @@ class NetLinesController < ActionController::Base
   end
 
   def show
+    @net_line = NetLine.find(params[:id])
+    render '/admin_menu/net_lines/show'
+  end
+
+  def edit
+    @net_line = NetLine.find(params[:id])
+    render '/admin_menu/net_lines/edit'
   end
 
   def update
+    @net_line = NetLine.find(params[:id])
+    if @net_line.update_attributes(net_line_params)
+      redirect_to @net_line
+    else
+      render '/admin_menu/net_lines/edit'
+    end
   end
 
   def destroy

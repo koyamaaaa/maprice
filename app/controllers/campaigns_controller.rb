@@ -1,6 +1,6 @@
 class CampaignsController < ActionController::Base
   def index
-    @campaings = Campaing.all
+    @campaigns = Campaign.all
     render '/admin_menu/campaigns/index'
   end
 
@@ -19,7 +19,23 @@ class CampaignsController < ActionController::Base
     end
   end
 
+  def show
+    @campaign = Campaign.find(params[:id])
+    render '/admin_menu/campaigns/show'
+  end
+
+  def edit
+    @campaign = Campaign.find(params[:id])
+    render '/admin_menu/campaigns/edit'
+  end
+
   def update
+    @campaign = Campaign.find(params[:id])
+    if @campaign.update_attributes(campaign_params)
+      redirect_to @campaign
+    else
+      render '/admin_menu/campaigns/edit'
+    end
   end
 
   def destroy

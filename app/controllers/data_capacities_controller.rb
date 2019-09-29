@@ -1,4 +1,5 @@
 class DataCapacitiesController < ActionController::Base
+
   def index
     @data_capacities = DataCapacity.all
     render '/admin_menu/data_capacities/index'
@@ -19,7 +20,23 @@ class DataCapacitiesController < ActionController::Base
     end
   end
 
+  def show
+    @data_capacity = DataCapacity.find(params[:id])
+    render '/admin_menu/data_capacities/show'
+  end
+
+  def edit
+    @data_capacity = DataCapacity.find(params[:id])
+    render '/admin_menu/data_capacities/edit'
+  end
+
   def update
+    @data_capacity = DataCapacity.find(params[:id])
+    if @data_capacity.update_attributes(data_capacity_params)
+      redirect_to @data_capacity
+    else
+      render '/admin_menu/data_capacities/edit'
+    end
   end
 
   def destroy
@@ -28,4 +45,5 @@ class DataCapacitiesController < ActionController::Base
   def data_capacity_params
     params.require(:data_capacity).permit(:name)
   end
+
 end
