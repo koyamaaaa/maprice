@@ -8,11 +8,9 @@ Rails.application.routes.draw do
               :campaigns
   end
 
-  namespace :public do
-    resources :plans, only: :index do
-      collection do
-        get :search
-      end
+  resources :plans, only: :index do
+    collection do
+      get :search
     end
   end
 
