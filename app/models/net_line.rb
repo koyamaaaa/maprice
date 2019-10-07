@@ -1,4 +1,3 @@
 class NetLine < ApplicationRecord
-  has_many :providers
-  belongs_to :service
+  has_many :plans
 end

@@ -4,6 +4,8 @@ class Plan < ApplicationRecord
   belongs_to :campaign
   belongs_to :data_capacity
   belongs_to :provider
+  belongs_to :net_line
+  belongs_to :service
 
   accepts_nested_attributes_for :devices
 end

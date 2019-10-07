@@ -1,0 +1,9 @@
+<%= form_with model: @search_plan_form, url: search_plans_path, html: { method: :get } do |f| %>
+  <%= collection_check_boxes :plan, :device_ids, Device.all, :id, :name %>
+  <%= f.collection_select :campaign_id, Campaign.all, :id, :name %>
+  <%= f.collection_select :data_capacity_id, DataCapacity.all, :id, :name %>
+  <%= f.collection_select :provider_id, Provider.all, :id, :name %>
+  <%= f.collection_select :net_line_id, NetLine.all, :id, :name %>
+  <%= f.collection_select :service_id, Service.all, :id, :name %>
+  <%= f.submit "Search" %>
+<% end %>

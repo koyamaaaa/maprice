@@ -8,7 +8,7 @@ Rails.application.routes.draw do
               :campaigns
   end
 
-  resources :plans, only: :index do
+  resources :plans, module: 'public', only: :index do
     collection do
       get :search
     end
