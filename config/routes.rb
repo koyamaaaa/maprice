@@ -3,9 +3,15 @@ Rails.application.routes.draw do
   
   # admin_menuルーティング
   scope '/admin_menu' do
+    get '/user/:id', to: 'users#show'
+    put '/users/:id', to: 'users#update'
+    delete 'users/:id', to: 'users#destroy'
+    get 'users/singup', to: 'users#singup'
+    post 'users/singup', to: 'users#create'
+
     resources :plans, :providers, :net_lines,
               :services, :devices, :data_capacities,
-              :campaigns, :users
+              :campaigns
   end
 
   resources :plans, module: 'public', only: :index do
