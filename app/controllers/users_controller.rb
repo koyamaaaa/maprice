@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
-  def new
+  def signup
+    render "/users/signup"
   end
 end
