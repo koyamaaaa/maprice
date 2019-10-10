@@ -1,7 +1,11 @@
-class UsersController < ApplicationController
+class UsersController < ActionController::Base
   def signup
     # ユーザー登録フォームを表示する
-    render "/users/signup"
+    render '/admin_menu/users/signup'
+  end
+
+  def show
+    render '/admin_menu/users/show'
   end
 
   def create
@@ -23,6 +27,6 @@ class UsersController < ApplicationController
 
   def destroy
     # 該当のユーザーを削除する
-    # ユーザー一覧画面を表示する
+    # ユーザー一覧画面を表示するu
   end
 end
