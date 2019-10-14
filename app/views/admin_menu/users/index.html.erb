@@ -1,6 +1,7 @@
 <div>
-  <%= @services.each do |service| %>
-    <p>ID：<%= service.id %></p>
-    <p>プラン：<%= service.name %></p>
+  <%= flash[:success] if flash[:success].present? %>
+  <%= @users.each do |user| %>
+    <p>ユーザー名：<%= user.id %></p>
+    <p>メールアドレス：<%=  user.name %></p>
   <% end %>
 </div>

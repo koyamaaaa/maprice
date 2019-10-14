@@ -1,7 +1,16 @@
-<%= form_with model: @service do |f| %>
+<%= form_with model: @user, url: '/admin_menu/users/:id', html: { method: 'PUT' } do |f| %>
 
-  <%= f.label :name, 'サービス' %>
+  <%= f.label :name, 'ユーザー名' %>
   <%= f.text_field :name %>
+
+  <%= f.label :email, 'メールアドレス' %>
+  <%= f.text_field :email %>
+
+  <%= f.label :password, '新しいパスワード' %>
+  <%= f.text_field :password %>
+
+  <%= f.label :password_confirmation, '新しい確認' %>
+  <%= f.text_field :password_confirmation %>
 
   <%= f.submit %>
 <% end %>

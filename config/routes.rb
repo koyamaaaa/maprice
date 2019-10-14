@@ -3,11 +3,13 @@ Rails.application.routes.draw do
   
   # admin_menuルーティング
   scope '/admin_menu' do
+    get '/users/', to: 'users#index'
     get '/users/signup', to: 'users#signup'
     post '/users/signup', to: 'users#create'
     get '/users/:id', to: 'users#show'
+    get '/users/:id/edit', to: 'users#edit'
     put '/users/:id', to: 'users#update'
-    delete '/users/:id', to: 'users#destroy'
+    delete '/users/:id', to: 'users#destroy', as: :users_destroy
 
     resources :plans, :providers, :net_lines,
               :services, :devices, :data_capacities,
