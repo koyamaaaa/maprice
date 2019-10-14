@@ -12,6 +12,7 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:password])
       # ユーザーログイン
       log_in user
+      params[:remember_me] == '1' ? remember(user) : forget(user)
       redirect_to controller: :users, action: :show, id: user.id
     else
       # ログインページに戻る
@@ -20,7 +21,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    log_out
+    log_out if logged_in?
     redirect_to controller: :users, action: :index
   end
 end

@@ -1,4 +1,4 @@
-<h1>Sessions#new</h1>
+<h1>ログイン</h1>
 <%= form_with model: @session, url: login_path do |f| %>
   <%= f.label :name , 'ユーザー名' %>
   <%= f.text_field :name %>
@@ -9,9 +9,9 @@
   <%= f.label :password, 'パスワード' %>
   <%= f.text_field :password %>
 
-  <%= f.label :password_confirmation, '確認' %>
-  <%= f.text_field :password_confirmation %>
+  <%= f.label :remember_me %>
+  <%= f.check_box :remember_me %>
+  <span>次回以降ログインした状態にする</span>
 
   <%= f.submit 'login' %>
-
 <% end %>
