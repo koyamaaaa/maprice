@@ -11,6 +11,10 @@ Rails.application.routes.draw do
     put '/users/:id', to: 'users#update'
     delete '/users/:id', to: 'users#destroy', as: :users_destroy
 
+    get '/login', to: 'sessions#new', as: :login
+    post '/login', to: 'sessions#create'
+    delete '/logout', to: 'sessions#destroy', as: :logout
+
     resources :plans, :providers, :net_lines,
               :services, :devices, :data_capacities,
               :campaigns

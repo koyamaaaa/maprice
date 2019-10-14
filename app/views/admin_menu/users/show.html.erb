@@ -1,7 +1,7 @@
-<%= javascript_include_tag "application" %>
 <div>
   <%= @user.name %>
   <%= @user.email %>
 
-  <%= link_to '削除', users_destroy_path(authenticity_token: form_authenticity_token), method: :delete, data: { confirm: "本当に削除しますか？"} %>
+  <%= link_to 'ログアウト', logout_path(get_auth_token), method: :delete %>
+  <%= link_to '削除', users_destroy_path(get_auth_token), method: :delete, data: { confirm: "本当に削除しますか？"} %>
 </div>

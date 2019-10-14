@@ -1,5 +1,9 @@
 <div>
-  <%= flash[:success] if flash[:success].present? %>
+  <% if logged_in? %>
+    <%= link_to 'ログアウト', logout_path(get_auth_token), method: :delete %>
+  <% else %>
+    <%= link_to 'ログイン', login_path %>
+  <% end %>
   <%= @users.each do |user| %>
     <p>ユーザー名：<%= user.id %></p>
     <p>メールアドレス：<%=  user.name %></p>
