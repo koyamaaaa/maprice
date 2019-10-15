@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   # admin_menuルーティング
   scope '/admin_menu' do
+    get '/', to: 'dashbords#index'
+
     get '/users/', to: 'users#index'
     get '/users/signup', to: 'users#signup'
     post '/users/signup', to: 'users#create'
