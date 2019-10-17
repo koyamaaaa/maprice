@@ -10,6 +10,10 @@
   </head>
 
   <body>
+    <a href="/">トップ</a>
+    <% if request.path != '/admin_menu' %>
+      <%= link_to '管理画面トップ', dashbords_path %>
+    <% end %>
     <% if logged_in? %>
       <%= link_to 'ログアウト', logout_path(get_auth_token), method: :delete %>
     <% else %>

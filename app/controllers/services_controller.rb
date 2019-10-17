@@ -1,5 +1,7 @@
 class ServicesController < ActionController::Base
 
+  layout 'admin_menu'
+
   def index
     @services = Service.all
     render '/admin_menu/services/index'
@@ -39,6 +41,13 @@ class ServicesController < ActionController::Base
   end
 
   def destroy
+    @service = Service.find(params[:id])
+    if @service.destroy
+    # 成功時のメッセージを格納する
+      flash[:success] = "ユーザーを削除しました"
+    # ユーザー一覧画面を表示する
+      redirect_to controller: :services, action: :index
+    end
   end
 
   private

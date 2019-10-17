@@ -1,5 +1,7 @@
-<% @net_lines.each do |net_line| %>
-  <p>ID：<%= net_line.id %></p>
-  <p>回線：<%= net_line.name %></p>
-  <p>サービス：<%= net_line.name %></p>
+<% @net_lines.each do |n| %>
+  <p>ID：<%= n.id %></p>
+  <p>回線：<%= link_to n.name, net_line_path(n) %></p>
+  <p>サービス：<%= n.name %></p>
+  <p><%= link_to '編集', edit_net_line_path(n) %></p>
+  <p><%= link_to '削除', net_line_path(n), method: :delete %></p>
 <% end %>

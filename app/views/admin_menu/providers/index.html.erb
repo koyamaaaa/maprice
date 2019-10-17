@@ -1,1 +1,6 @@
-provider.index
+<h2>プロバイダー一覧</h2>
+<% @providers.each do |p| %>
+  <p><%= link_to p.name, provider_path(p) %></p>
+  <p><%= link_to '編集', edit_provider_path(p) %></p>
+  <p><%= link_to '削除', campaign_path(p), method: :delete %></p>
+<% end %>

@@ -1,6 +1,8 @@
 <div>
-  <%= @services.each do |service| %>
-    <p>ID：<%= service.id %></p>
-    <p>プラン：<%= service.name %></p>
+  <%= @services.each do |s| %>
+    <p>ID：<%= s.id %></p>
+    <p>プラン：<%= link_to s.name, service_path(s) %></p>
+    <p><%= link_to '編集', edit_service_path(s) %></p>
+    <p><%= link_to '削除', service_path(s), method: :delete %></p>
   <% end %>
 </div>

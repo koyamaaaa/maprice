@@ -1,4 +1,7 @@
 class ProvidersController < ActionController::Base
+
+  layout 'admin_menu'
+
   def index
     @providers = Provider.all
     render '/admin_menu/providers/index'
@@ -39,6 +42,13 @@ class ProvidersController < ActionController::Base
   end
 
   def destroy
+    @provider = Provider.find(params[:id])
+    if @provider.destroy
+    # 成功時のメッセージを格納する
+      flash[:success] = "ユーザーを削除しました"
+    # ユーザー一覧画面を表示する
+      redirect_to controller: :providers, action: :index
+    end
   end
 
   def provider_params

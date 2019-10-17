@@ -1,7 +1,7 @@
 <div>
     <%= @plans.each do |plan| %>
       <p>ID：<%= plan.id %></p>
-      <p>プラン：<%= plan.name %></p>
+      <p>プラン：<%= link_to plan.name, plan_path(plan) %></p>
       <p>プラン内容：<%= plan.p_content %></p>
       <p>契約期間：<%= plan.construct_period %></p>
       <p>総合計金額：<%= plan.total_fee %></p>
