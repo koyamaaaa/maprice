@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_14_141659) do
+ActiveRecord::Schema.define(version: 2019_10_19_160933) do
 
   create_table "campaigns", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -49,18 +49,18 @@ ActiveRecord::Schema.define(version: 2019_10_14_141659) do
     t.integer "total_fee", null: false
     t.integer "plan_device_fee", null: false
     t.text "plan_url", null: false
-    t.bigint "campaign_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "data_capacity_id"
-    t.bigint "provider_id", null: false
-    t.bigint "net_line_id", default: 3, null: false
-    t.bigint "service_id", default: 1, null: false
+    t.bigint "campaign_id", default: 1
+    t.bigint "provider_id", default: 1
+    t.bigint "data_capacity_id", default: 1
+    t.bigint "net_line_id", default: 3
+    t.bigint "service_id", default: 1
     t.index ["campaign_id"], name: "fk_rails_2dd293748a"
-    t.index ["data_capacity_id"], name: "index_plans_on_data_capacity_id"
-    t.index ["net_line_id"], name: "index_plans_on_net_line_id"
-    t.index ["provider_id"], name: "index_plans_on_provider_id"
-    t.index ["service_id"], name: "index_plans_on_service_id"
+    t.index ["data_capacity_id"], name: "fk_rails_fdf76391cf"
+    t.index ["net_line_id"], name: "fk_rails_a28e7ec674"
+    t.index ["provider_id"], name: "fk_rails_de584490bb"
+    t.index ["service_id"], name: "fk_rails_98dbbcef77"
   end
 
   create_table "plans_devices", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -93,9 +93,9 @@ ActiveRecord::Schema.define(version: 2019_10_14_141659) do
 
   add_foreign_key "campaigns", "providers"
   add_foreign_key "devices", "services"
-  add_foreign_key "plans", "campaigns"
-  add_foreign_key "plans", "data_capacities"
-  add_foreign_key "plans", "net_lines"
-  add_foreign_key "plans", "providers"
-  add_foreign_key "plans", "services"
+  add_foreign_key "plans", "campaigns", on_update: :cascade, on_delete: :cascade
+  add_foreign_key "plans", "data_capacities", on_update: :cascade, on_delete: :cascade
+  add_foreign_key "plans", "net_lines", on_update: :cascade, on_delete: :cascade
+  add_foreign_key "plans", "providers", on_update: :cascade, on_delete: :cascade
+  add_foreign_key "plans", "services", on_update: :cascade, on_delete: :cascade
 end
