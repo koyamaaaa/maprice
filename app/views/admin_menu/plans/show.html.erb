@@ -1,4 +1,5 @@
 <div>
+  <%= link_to 'プラン一覧', plans_path %>
   <p>ID：<%= @plan.id %></p>
   <p>プラン：<%= @plan.name %></p>
   <p>プラン内容：<%= @plan.p_content %></p>
@@ -12,4 +13,6 @@
   <% @plan.plans_devices.each do |plan_devices| %>
     <p>端末：　<%= plan_devices.device.name %></p>
   <% end %>
+  <%= link_to '編集', edit_plan_path(@plan) %>
+  <%= link_to '削除', plan_path(@plan), method: :delete, data: { confirm: "本当に削除しますか？"} %>
 </div>

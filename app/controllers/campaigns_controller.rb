@@ -1,4 +1,7 @@
 class CampaignsController < ActionController::Base
+
+  layout 'admin_menu'
+
   def index
     @campaigns = Campaign.all
     render '/admin_menu/campaigns/index'

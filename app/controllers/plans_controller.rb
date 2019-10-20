@@ -1,5 +1,7 @@
 class PlansController < ActionController::Base
 
+  layout 'admin_menu'
+
   def index
     @plans = Plan.all
     render '/admin_menu/plans/index'
@@ -39,6 +41,13 @@ class PlansController < ActionController::Base
   end
 
   def destroy
+    @plan = Plan.find(params[:id])
+    if @plan.destroy
+    # 成功時のメッセージを格納する
+      flash[:success] = "ユーザーを削除しました"
+    # ユーザー一覧画面を表示する
+      redirect_to controller: :plans, action: :index
+    end
   end
 
   private
@@ -46,7 +55,7 @@ class PlansController < ActionController::Base
   def plan_params
     params.require(:plan).permit(:name, :p_content, :construct_period,
                                  :total_fee, :plan_device_fee, :plan_url,
-                                 :campaign_id, :plan_device_id,:data_capacity_id,
+                                 :campaign_id, :plan_device_id, :data_capacity_id,
                                  :provider_id, { :device_ids=> [] }
                                 )
   end

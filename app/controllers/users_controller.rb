@@ -1,5 +1,7 @@
 class UsersController < ActionController::Base
 
+  layout 'admin_menu'
+
   def index
     @users = User.all
     render '/admin_menu/users/index'

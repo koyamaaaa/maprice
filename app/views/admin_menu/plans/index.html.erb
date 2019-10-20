@@ -1,7 +1,8 @@
+<%= link_to '新規作成', new_plan_path %>
 <div>
     <%= @plans.each do |plan| %>
       <p>ID：<%= plan.id %></p>
-      <p>プラン：<%= plan.name %></p>
+      <p>プラン：<%= link_to plan.name, edit_plan_path(plan) %></p>
       <p>プラン内容：<%= plan.p_content %></p>
       <p>契約期間：<%= plan.construct_period %></p>
       <p>総合計金額：<%= plan.total_fee %></p>
@@ -13,5 +14,6 @@
       <% plan.plans_devices.each do |plan_devices| %>
         <p>端末：　<%= plan_devices.device.name %></p>
       <% end %>
+      <p><%= link_to '削除', plan_path(plan), method: :delete, data: { confirm: '本当に削除しますか？' } %></p>
     <% end %>
   </div>

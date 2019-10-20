@@ -1,4 +1,7 @@
 class DevicesController < ActionController::Base
+
+  layout 'admin_menu'
+  
   def index
     @devices = Device.all
     render '/admin_menu/devices/index'

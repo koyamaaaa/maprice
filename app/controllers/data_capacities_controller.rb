@@ -1,4 +1,8 @@
 class DataCapacitiesController < ActionController::Base
+  
+  layout 'admin_menu'
+
+  layout 'admin_menu'
 
   def index
     @data_capacities = DataCapacity.all
@@ -40,6 +44,13 @@ class DataCapacitiesController < ActionController::Base
   end
 
   def destroy
+    @data_capacity = DataCapacity.find(params[:id])
+    if @data_capacity.destroy
+    # 成功時のメッセージを格納する
+      flash[:success] = "ユーザーを削除しました"
+    # ユーザー一覧画面を表示する
+      redirect_to controller: :data_capacities, action: :index
+    end
   end
 
   def data_capacity_params

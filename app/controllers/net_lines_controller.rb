@@ -1,5 +1,7 @@
 class NetLinesController < ActionController::Base
 
+  layout 'admin_menu'
+
   def index
     @net_lines = NetLine.all
     render '/admin_menu/net_lines/index'
@@ -39,6 +41,13 @@ class NetLinesController < ActionController::Base
   end
 
   def destroy
+    @net_line = NetLine.find(params[:id])
+    if @net_line.destroy
+    # 成功時のメッセージを格納する
+      flash[:success] = "ユーザーを削除しました"
+    # ユーザー一覧画面を表示する
+      redirect_to controller: :netlines, action: :index
+    end
   end
 
   private
