@@ -1,6 +1,8 @@
-<h2>プロバイダー一覧</h2>
-<% @providers.each do |p| %>
-  <p><%= link_to p.name, provider_path(p) %></p>
-  <p><%= link_to '編集', edit_provider_path(p) %></p>
-  <p><%= link_to '削除', campaign_path(p), method: :delete %></p>
-<% end %>
+<%= link_to '新規作成', new_provider_path %>
+<div>
+  <%= @providers.each do |provider| %>
+    <p>ID：<%= provider.id %></p>
+    <p>プロバイダー：<%= link_to provider.name, edit_provider_path(provider) %></p>
+    <p><%= link_to '削除', provider_path(provider), method: :delete, data: { confirm: '関連プランも削除されます。本当に削除しますか？' } %></p>
+  <% end %>
+</div>

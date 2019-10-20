@@ -38,3 +38,6 @@
 
   <%= f.submit %>
 <% end %>
+
+<%= link_to '新規作成', new_plan_path %>
+<%= link_to '削除', plan_path(@plan), method: :delete, data: { confirm: '本当に削除しますか？' } %>

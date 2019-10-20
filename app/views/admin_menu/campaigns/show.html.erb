@@ -1,9 +1,7 @@
 <div>
-  <%= link_to 'キャンペーン一覧', campaigns_path %>
+  <p><%= link_to '管理画面トップ', dashbords_path %></p>
   <p>ID：<%= @campaign.id %></p>
   <p>キャンペーン：<%= @campaign.name %></p>
   <p>キャンペーン内容：<%= @campaign.cp_content %></p>
   <p>プロバイダー：<%= @campaign.provider.name %></p>
-  <%= link_to '編集', edit_campaign_path(@campaign) %>
-  <%= link_to '削除', campaign_path(@campaign), method: :delete, data: { confirm: "本当に削除しますか？"} %>
 </div>

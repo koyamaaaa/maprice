@@ -1,5 +1,5 @@
 class CampaignsController < ActionController::Base
-  
+
   layout 'admin_menu'
 
   def index
@@ -42,13 +42,6 @@ class CampaignsController < ActionController::Base
   end
 
   def destroy
-    @campaign = Campaign.find(params[:id])
-    if @campaign.destroy
-    # 成功時のメッセージを格納する
-      flash[:success] = "ユーザーを削除しました"
-    # ユーザー一覧画面を表示する
-      redirect_to controller: :campaigns, action: :index
-    end
   end
 
   def campaign_params
