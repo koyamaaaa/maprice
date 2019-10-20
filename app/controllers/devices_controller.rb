@@ -42,6 +42,13 @@ class DevicesController < ActionController::Base
   end
 
   def destroy
+    @device = Device.find(params[:id])
+    if @device.destroy
+    # 成功時のメッセージを格納する
+      flash[:success] = "ユーザーを削除しました"
+    # ユーザー一覧画面を表示する
+      redirect_to controller: :devices, action: :index
+    end
   end
 
   def device_params

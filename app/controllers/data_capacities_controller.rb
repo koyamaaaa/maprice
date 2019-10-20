@@ -2,8 +2,6 @@ class DataCapacitiesController < ActionController::Base
   
   layout 'admin_menu'
 
-  layout 'admin_menu'
-
   def index
     @data_capacities = DataCapacity.all
     render '/admin_menu/data_capacities/index'
