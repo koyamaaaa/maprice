@@ -1,6 +1,27 @@
-<%= @search_plan_forms.each do |p| %>
-  <%= debug @search_plan_forms %>
-  <%= p.name %>
-  <%= p.id %>
-  <%= p.p_content %>
+<%= form_with model: @search_plan_form, url: search_plans_path, html: { method: :get } do |f| %>
+  <%= f.label '端末' %>
+  <%= collection_check_boxes :plan, :device_ids, Device.all, :id, :name %>
+
+  <%= f.label 'キャンペーン' %>
+  <%= f.collection_select :campaign_id, Campaign.all, :id, :name, { include_blank: '選択してください'} %>
+
+  <%= f.label 'データ通信容量' %>
+  <%= f.collection_select :data_capacity_id, DataCapacity.all, :id, :name, { include_blank: '選択してください'} %>
+
+  <%= f.label 'プロバイダー' %>
+  <%= f.collection_select :provider_id, Provider.all, :id, :name, { include_blank: '選択してください'} %>
+
+  <%= f.label '回線' %>
+  <%= f.collection_select :net_line_id, NetLine.all, :id, :name, { include_blank: '選択してください'} %>
+
+  <%= f.label 'サービス' %>
+  <%= f.collection_select :service_id, Service.all, :id, :name, { include_blank: '選択してください'} %>
+  
+  <%= f.submit "Search" %>
+<% end %>
+
+<%= @search_plan_forms.each do |plan| %>
+  <%= plan.name %>
+  <%= plan.id %>
+  <%= plan.p_content %>
 <% end %>

@@ -2,6 +2,7 @@ class Public::PlansController < ActionController::Base
 
   def index
     @search_plan_form = SearchPlanForm.new
+    @plans = Plan.all
     render '/public/plans/index'
   end
 
