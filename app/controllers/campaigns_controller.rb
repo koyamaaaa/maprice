@@ -38,6 +38,7 @@ class CampaignsController < ActionController::Base
       redirect_to @campaign
     else
       render '/admin_menu/campaigns/edit'
+      logger.debug @campaign.errors.inspect
     end
   end
 
