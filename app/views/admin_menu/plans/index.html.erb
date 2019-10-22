@@ -8,7 +8,9 @@
       <p>総合計金額：<%= plan.total_fee %></p>
       <p>端末代金：<%= plan.plan_device_fee %></p>
       <p>URL：<%= plan.plan_url %></p>
-      <p>キャンペーン：<%= plan.campaign.name %></p>
+      <% plan.plans_campaigns.each do |plan_campaigns| %>
+        <p>サービス：<%= plan_campaigns.campaign.name %></p>
+      <% end %>
       <p>データ通信量：<%= plan.data_capacity.name %></p>
       <p>プロバイダー：<%= plan.provider.name %></p>
       <% plan.plans_services.each do |plan_services| %>

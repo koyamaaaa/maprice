@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_22_053327) do
+ActiveRecord::Schema.define(version: 2019_10_22_060900) do
 
   create_table "campaigns", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -60,6 +60,13 @@ ActiveRecord::Schema.define(version: 2019_10_22_053327) do
     t.index ["net_line_id"], name: "fk_rails_a28e7ec674"
     t.index ["provider_id"], name: "fk_rails_de584490bb"
     t.index ["service_id"], name: "fk_rails_98dbbcef77"
+  end
+
+  create_table "plans_campaigns", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "plan_id"
+    t.integer "campaign_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "plans_devices", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

@@ -18,8 +18,8 @@
   <%= f.label :plan_url, 'リンクURL' %>
   <%= f.text_field :plan_url %>
 
-  <%= f.label :campaign_id, 'キャンペーン' %>
-  <%= f.collection_select :campaign_id, Campaign.all, :id, :name %>
+  <%= f.label :campaign_ids %>
+  <%= collection_check_boxes :plan, :campaign_ids, Campaign.all, :id, :name %>
 
   <%= f.label :net_line_id %>
   <%= f.collection_select :net_line_id, NetLine.all, :id, :name %>
