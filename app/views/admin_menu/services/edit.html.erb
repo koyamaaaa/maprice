@@ -6,5 +6,5 @@
   <%= f.submit %>
 <% end %>
 
-<%= '新規作成', new_service_path %>
+<%= link_to '新規作成', new_service_path %>
 <%= link_to '削除', service_path(@service), method: :delete, data: { confirm: '関連プランも削除されます。本当に削除しますか？' } %>

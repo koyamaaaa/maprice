@@ -9,7 +9,7 @@ class ServicesController < ActionController::Base
 
   def new
     @service = Service.new
-    render new_service_path
+    render '/admin_menu/services/new'
   end
 
   def create
@@ -17,7 +17,7 @@ class ServicesController < ActionController::Base
     if @service.save
       redirect_to @service
     else
-      render new_service_path
+      render '/admin_menu/services/new'
     end
   end
 
