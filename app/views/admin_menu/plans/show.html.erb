@@ -10,8 +10,11 @@
   <p>キャンペーン：<%= @plan.campaign.name %></p>
   <p>データ通信量：<%= @plan.data_capacity.name %></p>
   <p>プロバイダー：<%= @plan.provider.name %></p>
+  <% @plan.plans_services.each do |plan_services| %>
+    <p>サービス：<%= plan_services.service.name %></p>
+  <% end %>
   <% @plan.plans_devices.each do |plan_devices| %>
-    <p>端末：　<%= plan_devices.device.name %></p>
+    <p>端末：<%= plan_devices.device.name %></p>
   <% end %>
   <%= link_to '編集', edit_plan_path(@plan) %>
   <%= link_to '削除', plan_path(@plan), method: :delete, data: { confirm: "本当に削除しますか？"} %>

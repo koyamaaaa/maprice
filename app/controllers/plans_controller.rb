@@ -56,7 +56,7 @@ class PlansController < ActionController::Base
     params.require(:plan).permit(:name, :p_content, :construct_period,
                                  :total_fee, :plan_device_fee, :plan_url,
                                  :campaign_id, :plan_device_id, :data_capacity_id,
-                                 :provider_id, { :device_ids=> [] }
+                                 :provider_id, { :service_ids=> [] }, { :device_ids=> [] }
                                 )
   end
 

@@ -1,4 +1,8 @@
 <%= form_with model: @search_plan_form, url: search_plans_path, html: { method: :get } do |f| %>
+  
+  <%= f.label 'サービス' %>
+  <%= collection_check_boxes :plan, :service_ids, Service.all, :id, :name %>
+
   <%= f.label '端末' %>
   <%= collection_check_boxes :plan, :device_ids, Device.all, :id, :name %>
 

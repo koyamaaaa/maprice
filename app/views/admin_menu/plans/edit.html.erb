@@ -24,8 +24,8 @@
   <%= f.label :net_line_id %>
   <%= f.collection_select :net_line_id, NetLine.all, :id, :name %>
 
-  <%= f.label :service_id %>
-  <%= f.collection_select :service_id, Service.all, :id, :name %>
+  <%= f.label :service_ids %>
+  <%= collection_check_boxes :plan, :service_ids, Service.all, :id, :name %>
 
   <%= f.label :data_capacity_id %>
   <%= f.collection_select :data_capacity_id, DataCapacity.all, :id, :name %>
