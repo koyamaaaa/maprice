@@ -6,6 +6,11 @@ class Public::PlansController < ActionController::Base
     render '/public/plans/index'
   end
 
+  def show
+    @plan = Plan.find(params[:id])
+    render '/public/plans/show'
+  end
+
   def search
     @search_plan_form = SearchPlanForm.new(search_params)
     @search_plan_forms = @search_plan_form.search

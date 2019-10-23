@@ -23,7 +23,7 @@ Rails.application.routes.draw do
               :campaigns
   end
 
-  resources :plans, module: 'public', only: :index do
+  resources :plans, module: 'public', only: [ :index, :show ] do
     collection do
       get :search
     end
