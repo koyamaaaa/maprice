@@ -6,7 +6,7 @@
   <%= f.label '端末' %>
   <%= collection_check_boxes :plan, :device_ids, Device.all, :id, :name %>
 
-  <%= f.label 'キャンペーン'' %>
+  <%= f.label 'キャンペーン' %>
   <%= collection_check_boxes :plan, :campaign_ids, Campaign.all, :id, :name %>
 
   <%= f.label 'データ通信容量' %>
