@@ -1,5 +1,5 @@
 class UsersController < ApplicationController 
-  skip_before_action :user_logged_in?, only: [:signup]
+  skip_before_action :user_logged_in?, only: [:signup, :create]
 
   layout 'admin_menu'
 
@@ -23,10 +23,12 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     # インスタンスをモデルに登録する
     if @user.save
-    # 登録した内容のユーザーページを表示する
+      # ログインする
+      log_in @user
+      # 登録した内容のユーザーページを表示する
       redirect_to controller: :users, action: :show, id: @user.id
     else
-      render 'new'
+      render '/admin_menu/users/signup'
     end
   end
 
