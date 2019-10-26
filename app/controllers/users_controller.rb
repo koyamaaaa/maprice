@@ -45,7 +45,7 @@ class UsersController < ApplicationController
     # 変更した内容でユーザーデータを更新する
     if @user.update_attributes(user_params)
     # 変更した内容のユーザーページを表示する
-      redirect_to controller: :users, action: :show, id: @user.id
+      redirect_to user_path
     else
       render '/admin_menu/users/edit'
     end

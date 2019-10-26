@@ -1,4 +1,4 @@
-<%= form_with model: @provider do |f| %>
+<%= form_with model: @provider, local: true do |f| %>
 
   <%= f.label :name, 'プロバイダー' %>
   <%= f.text_field :name %>

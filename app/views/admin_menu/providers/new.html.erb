@@ -1,5 +1,5 @@
 <% flash[:alert] if flash[:alert] %>
-<%= form_with model: @provider, method: :post do |f| %>
+<%= form_with model: @provider, method: :post, local: true do |f| %>
   <%= f.label :name, 'プロバイダ名' %>
   <%= f.text_field :name %>
 
