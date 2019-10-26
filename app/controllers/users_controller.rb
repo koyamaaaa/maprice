@@ -1,4 +1,5 @@
 class UsersController < ApplicationController 
+  skip_before_action :user_logged_in?, only: [:signup]
 
   layout 'admin_menu'
 
@@ -6,6 +7,7 @@ class UsersController < ApplicationController
     @users = User.all
     render '/admin_menu/users/index'
   end
+
   def signup
     @user = User.new
     render '/admin_menu/users/signup'

@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  skip_before_action :user_logged_in?
+
   def new
     if logged_in?
       redirect_to controller: :users, action: :show, id: current_user.id
@@ -22,6 +24,6 @@ class SessionsController < ApplicationController
 
   def destroy
     log_out if logged_in?
-    redirect_to controller: :users, action: :index
+    redirect_to '/'
   end
 end
