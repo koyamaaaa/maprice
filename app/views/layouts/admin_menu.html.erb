@@ -15,7 +15,7 @@
       <%= link_to '管理画面トップ', dashbords_path %>
     <% end %>
     <% if logged_in? %>
-      <%= link_to 'ログアウト', logout_path(get_auth_token), method: :delete %>
+      <%= link_to 'ログアウト', logout_path, method: :delete %>
     <% else %>
       <%= link_to 'ログイン', login_path %>
     <% end %>
