@@ -1,4 +1,4 @@
-class DevicesController < ActionController::Base
+class DevicesController < ApplicationController 
 
   layout 'admin_menu'
   

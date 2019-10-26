@@ -1,4 +1,4 @@
-class CampaignsController < ActionController::Base
+class CampaignsController < ApplicationController 
 
   layout 'admin_menu'
 

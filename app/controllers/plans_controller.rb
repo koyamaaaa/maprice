@@ -1,4 +1,4 @@
-class PlansController < ActionController::Base
+class PlansController < ApplicationController 
 
   layout 'admin_menu'
 

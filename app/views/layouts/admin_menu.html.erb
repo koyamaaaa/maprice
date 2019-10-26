@@ -10,6 +10,9 @@
   </head>
 
   <body>
+    <% if flash[:alert] %>
+      <%= flash[:alert] %>
+    <% end %>
     <a href="/">トップ</a>
     <% if request.path != '/admin_menu' %>
       <%= link_to '管理画面トップ', dashbords_path %>

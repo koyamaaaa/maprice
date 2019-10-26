@@ -1,4 +1,5 @@
-class Public::PlansController < ActionController::Base
+class Public::PlansController < ApplicationController
+  skip_before_action :user_logged_in?
 
   def index
     @search_plan_form = SearchPlanForm.new

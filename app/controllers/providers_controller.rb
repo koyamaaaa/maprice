@@ -1,4 +1,4 @@
-class ProvidersController < ActionController::Base
+class ProvidersController < ApplicationController 
 
   layout 'admin_menu'
 

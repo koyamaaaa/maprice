@@ -1,4 +1,4 @@
-class DashbordsController < ActionController::Base
+class DashbordsController < ApplicationController 
 
   layout 'admin_menu'
 

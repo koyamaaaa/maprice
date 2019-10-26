@@ -1,4 +1,4 @@
-class NetLinesController < ActionController::Base
+class NetLinesController < ApplicationController 
 
   layout 'admin_menu'
 

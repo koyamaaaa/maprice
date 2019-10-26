@@ -1,4 +1,4 @@
-class DataCapacitiesController < ActionController::Base
+class DataCapacitiesController < ApplicationController 
   
   layout 'admin_menu'
 
