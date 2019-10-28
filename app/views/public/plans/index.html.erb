@@ -1,13 +1,13 @@
 <%= form_with model: @search_plan_form, url: search_plans_path, method: :get, local: true do |f| %>
   
   <%= f.label 'サービス' %>
-  <%= collection_check_boxes :plan, :service_ids, Service.all, :id, :name %>
+  <%= f.collection_check_boxes :service_ids, Service.all, :id, :name %>
 
   <%= f.label '端末' %>
-  <%= collection_check_boxes :plan, :device_ids, Device.all, :id, :name %>
+  <%= f.collection_check_boxes :device_ids, Device.all, :id, :name %>
 
   <%= f.label 'キャンペーン' %>
-  <%= collection_check_boxes :plan, :campaign_ids, Campaign.all, :id, :name %>
+  <%= f.collection_check_boxes :campaign_ids, Campaign.all, :id, :name %>
 
   <%= f.label 'データ通信容量' %>
   <%= f.collection_select :data_capacity_id, DataCapacity.all, :id, :name, { include_blank: '選択してください'} %>
