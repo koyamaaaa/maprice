@@ -1,0 +1,8 @@
+<div>
+  <%= link_to '回線一覧', net_lines_path %>
+  <p>ID：<%= @net_line.id %></p>
+  <p>回線：<%= @net_line.name %></p>
+  <p>サービス：<%= @net_line.name %></p>
+  <%= link_to '編集', net_line_path(@net_line) %>
+  <%= link_to '削除', net_line_path(@net_line), method: :delete, data: { confirm: "本当に削除しますか？"} %>
+</div>

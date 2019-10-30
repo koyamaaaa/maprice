@@ -1,0 +1,9 @@
+<div>
+  <p><%= link_to '管理画面トップ', dashbords_path %></p>
+  <p>ID：<%= @campaign.id %></p>
+  <p>キャンペーン：<%= @campaign.name %></p>
+  <p>キャンペーン内容：<%= @campaign.cp_content %></p>
+  <% unless @campaign.provider.blank? %>
+    <p>プロバイダー：<%= @campaign.provider.name %></p>
+  <% end %>
+</div>

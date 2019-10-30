@@ -1,0 +1,6 @@
+<%= link_to '新規作成', new_net_line_path %>
+<% @net_lines.each do |net_line| %>
+  <p>ID：<%= net_line.id %></p>
+  <p>回線：<%= link_to net_line.name, edit_net_line_path(net_line) %></p>
+  <p><%= link_to '削除', net_line_path(net_line), method: :delete, data: { confirm: '関連プランも削除されます。本当に削除しますか？' } %></p>
+<% end %>

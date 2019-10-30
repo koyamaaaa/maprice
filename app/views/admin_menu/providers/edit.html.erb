@@ -1,0 +1,10 @@
+<%= form_with model: @provider, local: true do |f| %>
+
+  <%= f.label :name, 'プロバイダー' %>
+  <%= f.text_field :name %>
+
+  <%= f.submit %>
+<% end %>
+
+<%= link_to '新規作成', new_provider_path %>
+<%= link_to '削除', provider_path(@provider), method: :delete, data: { confirm: '関連プランも削除されます。本当に削除しますか？' } %>

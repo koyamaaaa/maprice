@@ -1,0 +1,6 @@
+<%= form_with model: @data_capacity, method: :post do |f| %>
+  <%= f.label :name, '通信容量名' %>
+  <%= f.text_field :name %>
+
+  <%= f.submit %>
+<% end %>

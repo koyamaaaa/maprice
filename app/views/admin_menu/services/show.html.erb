@@ -1,0 +1,7 @@
+<div>
+  <%= link_to 'サービス一覧', services_path %>
+  <p>ID：<%= @service.id %></p>
+  <p>サービス：<%= @service.name %></p>
+  <%= link_to '編集', edit_service_path(@service) %>
+  <%= link_to '削除', service_path(@service), method: :delete, data: { confirm: "本当に削除しますか？" } %>
+</div>

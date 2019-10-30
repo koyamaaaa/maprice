@@ -1,0 +1,8 @@
+<%= link_to '新規作成', new_data_capacity_path %>
+<div>
+  <%= @data_capacities.each do |data_capacity| %>
+    <p>ID：<%= data_capacity.id %></p>
+    <p>通信用量：<%= link_to data_capacity.name, edit_data_capacity_path(data_capacity) %></p>
+    <p><%= link_to '削除', data_capacity_path(data_capacity), method: :delete, data: { confirm: '関連プランも削除されます。本当に削除しますか？' } %></p>
+  <% end %>
+</div>

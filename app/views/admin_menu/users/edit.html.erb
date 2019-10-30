@@ -1,0 +1,18 @@
+<%= form_with model: @user, url: user_path, method: :put, local: true do |f| %>
+
+  <%= f.label :name, 'ユーザー名' %>
+  <%= f.text_field :name %>
+
+  <%= f.label :email, 'メールアドレス' %>
+  <%= f.text_field :email %>
+
+  <%= f.label :password, '新しいパスワード' %>
+  <%= f.text_field :password %>
+
+  <%= f.label :password_confirmation, '新しい確認' %>
+  <%= f.text_field :password_confirmation %>
+
+  <%= f.submit %>
+<% end %>
+
+<%= link_to '削除', user_path(@user), method: :delete %>

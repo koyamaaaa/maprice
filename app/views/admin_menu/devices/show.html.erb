@@ -1,0 +1,7 @@
+<div>
+  <p>ID：<%= @device.id %></p>
+  <p>通信用量：<%= @device.name %></p>
+  <p>サービス：<%= @device.service.name %></p>
+  <%= link_to '新規作成', new_device_path %>
+  <%= link_to '削除', device_path(@device), method: :delete, data: { confirm: '本当に削除しますか？' } %>
+</div>

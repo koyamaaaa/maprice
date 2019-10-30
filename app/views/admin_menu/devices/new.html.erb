@@ -1,0 +1,9 @@
+<%= form_with model: @device, method: :post do |f| %>
+  <%= f.label :name, '端末名' %>
+  <%= f.text_field :name %>
+
+  <%= f.label :service_id , 'サービス名' %>
+  <%= f.collection_select :service_id, Service.all, :id, :name %>
+  
+  <%= f.submit %>
+<% end %>

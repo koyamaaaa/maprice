@@ -1,0 +1,10 @@
+<%= form_with model: @net_line do |f| %>
+
+  <%= f.label :name, '回線' %>
+  <%= f.text_field :name %>
+
+  <%= f.submit %>
+<% end %>
+
+<%= link_to '新規作成', new_net_line_path %>
+<%= link_to '削除', net_line_path(@net_line), method: :delete, data: { confirm: '関連プランも削除されます。本当に削除しますか？' }%>

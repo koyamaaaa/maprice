@@ -1,0 +1,24 @@
+<%= link_to '新規作成', new_plan_path %>
+<div>
+    <%= @plans.each do |plan| %>
+      <p>ID：<%= plan.id %></p>
+      <p>プラン：<%= link_to plan.name, edit_plan_path(plan) %></p>
+      <p>プラン内容：<%= plan.p_content %></p>
+      <p>契約期間：<%= plan.construct_period %></p>
+      <p>総合計金額：<%= plan.total_fee %></p>
+      <p>端末代金：<%= plan.plan_device_fee %></p>
+      <p>URL：<%= plan.plan_url %></p>
+      <% plan.plans_campaigns.each do |plan_campaigns| %>
+        <p>キャンペーン：<%= plan_campaigns.campaign.name %></p>
+      <% end %>
+      <p>データ通信量：<%= plan.data_capacity.name %></p>
+      <p>プロバイダー：<%= plan.provider.name %></p>
+      <% plan.plans_services.each do |plan_services| %>
+        <p>サービス：<%= plan_services.service.name %></p>
+      <% end %>
+      <% plan.plans_devices.each do |plan_devices| %>
+        <p>端末：<%= plan_devices.device.name %></p>
+      <% end %>
+      <p><%= link_to '削除', plan_path(plan), method: :delete, data: { confirm: '本当に削除しますか？' } %></p>
+    <% end %>
+  </div>

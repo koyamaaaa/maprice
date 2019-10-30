@@ -1,0 +1,40 @@
+<%= form_with model: @plan, method: :post, local: true do |f| %>
+
+  <%= f.label :name, 'プラン' %>
+  <%= f.text_field :name %>
+
+  <%= f.label :p_content, 'プラン内容' %>
+  <%= f.text_field :p_content %>
+
+  <%= f.label :construct_period, '契約期間' %>
+  <%= f.text_field :construct_period %>
+
+  <%= f.label :total_fee, '合計金額' %>
+  <%= f.text_field :total_fee %>
+
+  <%= f.label :plan_device_fee, '端末代金' %>
+  <%= f.text_field :plan_device_fee %>
+
+  <%= f.label :plan_url, 'リンクURL' %>
+  <%= f.text_field :plan_url %>
+
+  <%= f.label :campaign_ids %>
+  <%= collection_check_boxes :plan, :campaign_ids, Campaign.all, :id, :name %>
+
+  <%= f.label :net_line_id %>
+  <%= f.collection_select :net_line_id, NetLine.all, :id, :name %>
+
+  <%= f.label :service_ids %>
+  <%= collection_check_boxes :plan, :service_ids, Service.all, :id, :name %>
+
+  <%= f.label :data_capacity_id %>
+  <%= f.collection_select :data_capacity_id, DataCapacity.all, :id, :name %>
+
+  <%= f.label :provider_id %>
+  <%= f.collection_select :provider_id, Provider.all, :id, :name %>
+
+  <%= f.label :device_ids %>
+  <%= collection_check_boxes :plan, :device_ids, Device.all, :id, :name %>
+
+  <%= f.submit %>
+<% end %>

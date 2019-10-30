@@ -1,0 +1,8 @@
+<%= link_to '新規作成', new_service_path %>
+<div>
+  <%= @services.each do |service| %>
+    <p>ID：<%= service.id %></p>
+    <p>プラン：<%= link_to service.name, edit_service_path(service) %></p>
+    <p><%= link_to '削除', service_path(service), method: :delete, data: { confirm: '関連プランも削除されます。本当に削除しますか？' } %></p>
+  <% end %>
+</div>

@@ -1,0 +1,12 @@
+<div>
+  <%= link_to '新規作成', new_campaign_path %>
+  <%= @campaigns.each do |campaign| %>
+    <p>ID：<%= campaign.id %></p>
+    <p>キャンペーン：<%= link_to campaign.name, edit_campaign_path(campaign) %></p>
+    <p>キャンペーン内容：<%= campaign.cp_content %></p>
+    <% unless campaign.provider.blank? %>
+      <p>プロバイダー：<%= campaign.provider.name %></p>
+    <% end %>
+    <p><%= link_to '削除', campaign_path(campaign), method: :delete, data: { confirm: '関連プランも削除されます。本当に削除しますか？' } %></p>
+  <% end %>
+</div>
