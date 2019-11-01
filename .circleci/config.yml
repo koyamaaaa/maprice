@@ -1,7 +1,7 @@
 version: 2.1
 jobs:
   build:
-    machin:
+    machine:
       image: circleci/classic:edge
     steps:
       - checkout
@@ -14,15 +14,15 @@ jobs:
       - run:
           name: sleep for waiting launch db
           command: sleep 1
-      -run:
-        name: create db & migrate
-        command: docker-compose run web rails db:create db:migrate
-      -run:
-        name: docker-compose down
-        command: docker-compose donw
+      - run:
+          name: create db & migrate
+          command: docker-compose run web rails db:create db:migrate
+      - run:
+          name: docker-compose down
+          command: docker-compose down
   deploy:
     machine:
-      - image: circleci/classic:edge
+      image: circleci/classic:edge
     working_directory: ~/maprice
     steps:
       - checkout
@@ -50,7 +50,7 @@ jobs:
 workflows:
   version: 2
   build_and_deploy:
-    jonbs:
+    jobs:
       - build
       - deploy:
           requires:
