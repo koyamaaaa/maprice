@@ -6,7 +6,7 @@ services:
       - "3306:3306"
     volumes:
       # host:container
-      - ./db/mysql/data:/var/lib/mysql
+      - ./tmp/db:/var/lib/mysql
   web:
     build: .
     command: bash -c " rm -f /app/tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0' "
