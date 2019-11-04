@@ -17,8 +17,6 @@ services:
     depends_on:
       - db
       - chrome
-    links:
-      - db
   smtp:
     image: schickling/mailcatcher
     ports:
