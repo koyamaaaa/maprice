@@ -18,7 +18,7 @@ services:
       # host:container
       - ./tmp/db:/var/lib/mysql
     environment:
-      - DB_HOST: 127.0.0.1
+      - DB_HOST: "127.0.0.1"
       - DB_USERNAME: "root"
       - DB_PASSWORD: ""
   smtp:
