@@ -16,7 +16,7 @@ services:
       - "3306:3306"
     volumes:
       # host:container
-      - ./tmp/db:/var/lib/mysql
+      - db-volume:/var/lib/mysql
     environment:
       - DB_HOST=127.0.0.1
       - DB_USERNAME=root
