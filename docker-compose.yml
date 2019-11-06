@@ -10,17 +10,15 @@ services:
     depends_on:
       - db
       - chrome
-    networks:
-      - maprice-net
   db:
     image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: password
     ports: 
       - "4306:3306"
     volumes:
       # host:container
       - ./tmp/db/mysql:/var/lib/mysql
-    networks:
-      - maprice-net
   smtp:
     image: schickling/mailcatcher
     ports:
@@ -36,8 +34,5 @@ services:
     stdin_open: true
     environment:
       - "SELENIUM_DRIVER_URL=http://selenium_chrome:4444/wd/hub"
-networks:
-  maprice-net:
-    driver: bridge
 volumes:
   db-volume:
