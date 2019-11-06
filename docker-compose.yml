@@ -10,6 +10,8 @@ services:
     depends_on:
       - db
       - chrome
+    networks:
+      - maprice-net
   db:
     image: mysql:5.7
     ports: 
@@ -17,6 +19,8 @@ services:
     volumes:
       # host:container
       - ./tmp/db/mysql:/var/lib/mysql
+    networks:
+      - maprice-net
   smtp:
     image: schickling/mailcatcher
     ports:
@@ -26,6 +30,8 @@ services:
     image: selenium/standalone-chrome:3.141.59-dubnium
     ports:
       - 4444:4444
+    networks:
+      - maprice-net
     tty: true
     stdin_open: true
     environment:
