@@ -13,14 +13,10 @@ services:
   db:
     image: mysql:5.7
     ports: 
-      - "3306:3306"
+      - "4306:3306"
     volumes:
       # host:container
-      - db-volume:/var/lib/mysql
-    environment:
-      - DB_HOST=127.0.0.1
-      - DB_USERNAME=root
-      - DB_PASSWORD=password
+      - ./tmp/db/mysql:/var/lib/mysql
   smtp:
     image: schickling/mailcatcher
     ports:
