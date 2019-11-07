@@ -10,11 +10,13 @@ services:
     depends_on:
       - db
       - chrome
+    environment:
+      - MYSQL_ROOT_PASSWORD
   db:
     image: mysql:5.7
     environment:
-      MYSQL_ROOT_PASSWORD: password
-    ports: 
+      - MYSQL_ROOT_PASSWORD
+    ports:
       - "4306:3306"
     volumes:
       # host:container
