@@ -1,0 +1,32 @@
+@charset "UTF-8";
+
+.ArticleCard {
+  align-items: center;
+  background-color: #fff;
+  border: 1px solid #eaeaea;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  padding: 4%;
+  width: 100%;
+
+  .ArticleCard__top {
+    font-size: 1rem;
+    font-weight: bold;
+    height: 20%;
+  }
+
+  .ArticleCard__content {
+    color: #676767;
+    font-size: 0.9rem;
+    height: 70%;
+    width: 90%;
+  }
+
+  .ArticleCard__footer {
+    height: 10%;
+  }
+
+}

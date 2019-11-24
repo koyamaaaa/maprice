@@ -13,6 +13,21 @@
     <% if flash[:alert] %>
       <%= flash[:alert] %>
     <% end %>
-    <%= yield %>
+    <div class="TopLayout">
+      <div class="TopLayout__header">
+        <div class="Header">
+          <h2 class="Header__title">maprice</h2>
+        </div>
+      </div>
+      <div class="TopLayout__globalnavi">
+        <div class="GlobalNavi">
+          <a class="GlobalNavi__menu" href="/">TOP</a>
+          <a class="GlobalNavi__menu" href="/plans">ポケットWiFi</a>
+        </div>
+      </div>
+      <%= yield %>
+      <div class="TopLayout__footer">
+      </div>
+    </div>
   </body>
 </html>

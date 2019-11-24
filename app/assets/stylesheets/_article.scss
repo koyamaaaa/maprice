@@ -1,0 +1,14 @@
+@charset "UTF-8";
+
+.Article {
+  align-content: flex-start;
+  display: flex;
+  flex-flow: row wrap;
+  padding: 2% 4% 4% 2%;
+
+  .Article__content {
+    height: 300px;
+    padding: 0.5%; 
+    width: calc( 100% / 3 );
+  }
+}
