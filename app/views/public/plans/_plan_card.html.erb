@@ -1,0 +1,28 @@
+<div class="Article__content">
+  <div class="ArticleCard">
+    <div class="ArticleCard__top">
+      <div class="ArticleCardTop">
+        <%= link_to({ controller: 'plans', action: 'show', id: plan.id }, { class: 'ArticleCardTop__title' }) do %>
+          <%= plan.name %> <%= plan.provider.name %>
+        <% end %>
+      </div>
+    </div>
+    <div class="ArticleCard__content">
+      <div class="ArticleCardContent">
+        <p class="ArticleCardContent__text">契約期間：<%= plan.construct_period %></p>
+        <p class="ArticleCardContent__text">契約期間合計：<%= plan.total_fee %>円</p>
+        <p class="ArticleCardContent__text">端末代金：<%= plan.plan_device_fee %>円</p>
+        <% plan.plans_campaigns.each do |plan_campaigns| %>
+          <p class="ArticleCardContent__text">キャンペーン：<%= plan_campaigns.campaign.name %></p>
+        <% end %>
+        <p class="ArticleCardContent__text">データ通信量：<%= plan.data_capacity.name %></p>
+      </div>
+    </div>
+    <div class="ArticleCard__footer">
+      <div class="ArticleCardFooter">
+        <a class="ArticleCardFooter__button" href="<%= plan.plan_url %>">公式サイト</a>
+        <%= link_to( '詳細', { controller: 'plans', action: 'show', id: plan.id }, { class: 'ArticleCardFooter__button' }) %></a>
+      </div>
+    </div>
+  </div>
+</div>

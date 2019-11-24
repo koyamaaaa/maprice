@@ -1,6 +1,6 @@
 <%= link_to '新規作成', new_device_path %>
 <div>
-  <%= @devices.each do |device| %>
+  <% @devices.each do |device| %>
     <p>ID：<%= device.id %></p>
     <p>端末名：<%= link_to device.name, edit_device_path(device) %></p>
     <p>サービス：<%= device.service.name %></p>

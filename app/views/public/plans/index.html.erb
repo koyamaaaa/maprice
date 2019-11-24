@@ -1,45 +1,14 @@
-<%= form_with model: @search_plan_form, url: search_plans_path, method: :get, local: true do |f| %>
-  
-  <%= f.label 'サービス' %>
-  <%= f.collection_check_boxes :service_ids, Service.all, :id, :name %>
-
-  <%= f.label '端末' %>
-  <%= f.collection_check_boxes :device_ids, Device.all, :id, :name %>
-
-  <%= f.label 'キャンペーン' %>
-  <%= f.collection_check_boxes :campaign_ids, Campaign.all, :id, :name %>
-
-  <%= f.label 'データ通信容量' %>
-  <%= f.collection_select :data_capacity_id, DataCapacity.all, :id, :name, { include_blank: '選択してください'} %>
-
-  <%= f.label 'プロバイダー' %>
-  <%= f.collection_select :provider_id, Provider.all, :id, :name, { include_blank: '選択してください'} %>
-
-  <%= f.label '回線' %>
-  <%= f.collection_select :net_line_id, NetLine.all, :id, :name, { include_blank: '選択してください'} %>
-  
-  <%= f.submit "Search" %>
-<% end %>
-
-<div>
-  <%= @plans.each do |plan| %>
-    <p>ID：<%= plan.id %></p>
-    <p>プラン：<%= link_to plan.name, controller: 'plans', action: 'show',  id: plan.id %></p>
-    <p>プラン内容：<%= plan.p_content %></p>
-    <p>契約期間：<%= plan.construct_period %></p>
-    <p>総合計金額：<%= plan.total_fee %></p>
-    <p>端末代金：<%= plan.plan_device_fee %></p>
-    <p>URL：<%= plan.plan_url %></p>
-    <% plan.plans_campaigns.each do |plan_campaigns| %>
-      <p>キャンペーン：<%= plan_campaigns.campaign.name %></p>
+<div class="TopLayout__sidebar">
+  <div class="Sidebar">
+    <div class="Sidebar__content">
+      <%= render partial: "search_form" %>
+    </div>
+  </div>
+</div>
+<div class="TopLayout__article">
+  <div class="Article"%>
+    <% @plans.each do |plan| %>
+      <%= render partial: "plan_card", locals: { plan: plan } %>
     <% end %>
-    <p>データ通信量：<%= plan.data_capacity.name %></p>
-    <p>プロバイダー：<%= plan.provider.name %></p>
-    <% plan.plans_services.each do |plan_services| %>
-      <p>端末：<%= plan_services.service.name %></p>
-    <% end %>
-    <% plan.plans_devices.each do |plan_devices| %>
-      <p>端末：<%= plan_devices.device.name %></p>
-    <% end %>
-  <% end %>
+  </div>
 </div>

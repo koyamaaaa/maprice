@@ -1,5 +1,5 @@
 <div>
-  <%= @users.each do |user| %>
+  <% @users.each do |user| %>
     <p>ID：<%= user.id %></p>
     <p>ユーザー：<%= link_to user.name, edit_user_path(user) %></p>
     <p>メールアドレス：<%=  user.email %></p>

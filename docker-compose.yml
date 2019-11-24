@@ -1,13 +1,5 @@
 version: '3'
 services:
-  db:
-    image: mysql:5.7
-    ports: 
-      - "5432:5432"
-    volumes:
-      - db-volume:/var/lib/mysql
-    environment:
-      MYSQL_ROOT_PASSWORD: password
   web:
     build: .
     command: bash -c " rm -f /app/tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0' "
@@ -18,6 +10,17 @@ services:
     depends_on:
       - db
       - chrome
+    environment:
+      - MYSQL_ROOT_PASSWORD
+  db:
+    image: mysql:5.7
+    environment:
+      - MYSQL_ROOT_PASSWORD
+    ports:
+      - "4306:3306"
+    volumes:
+      # host:container
+      - ./tmp/db/mysql:/var/lib/mysql
   smtp:
     image: schickling/mailcatcher
     ports:
