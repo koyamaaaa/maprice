@@ -1,21 +1,51 @@
-<%= link_to 'プラン検索に戻る', controller: 'plans', action: 'index' %>
-<div>
-  <p>ID：<%= @plan.id %></p>
-  <p>プラン：<%= @plan.name %></p>
-  <p>プラン内容：<%= @plan.p_content %></p>
-  <p>契約期間：<%= @plan.construct_period %></p>
-  <p>総合計金額：<%= @plan.total_fee %></p>
-  <p>端末代金：<%= @plan.plan_device_fee %></p>
-  <p>URL：<%= @plan.plan_url %></p>
-  <% @plan.plans_campaigns.each do |plan_campaigns| %>
-    <p>キャンペーン：<%= plan_campaigns.campaign.name %></p>
-  <% end %>
-  <p>データ通信量：<%= @plan.data_capacity.name %></p>
-  <p>プロバイダー：<%= @plan.provider.name %></p>
-  <% @plan.plans_services.each do |plan_services| %>
-    <p>サービス：<%= plan_services.service.name %></p>
-  <% end %>
-  <% @plan.plans_devices.each do |plan_devices| %>
-    <p>端末：<%= plan_devices.device.name %></p>
-  <% end %>
+<div class="BaseLayout__sidebar">
+  <div class="Sidebar">
+    <div class="Sidebar__content">
+      aaa
+    </div>
+  </div>
+</div>
+<div class="BaseLayout__article">
+  <div class="ArticlePlan">
+    <div class="ArticlePlan__plandetail">
+      <div class="PlanDetail">
+        <div class="PlanDetail__top">
+          <div class="PlanDetailTop">
+            <h2 class="PlanDetailTop__title"><%= @plan.name %> <%= @plan.provider.name %></h2>
+          </div>
+        </div>
+        <div class="PlanDetail__content">
+          <div class="PlanDetailContent">
+            <p class="PlanDetailContent__text">プラン内容：<%= @plan.p_content %></p>
+            <p class="PlanDetailContent__text">端末代金：<%= @plan.plan_device_fee %></p>
+            <p class="PlanDetailContent__text">URL：<%= @plan.plan_url %></p>
+            <% @plan.plans_campaigns.each do |plan_campaigns| %>
+              <p class="PlanDetailContent__text">キャンペーン：<%= plan_campaigns.campaign.name %></p>
+            <% end %>
+            <p class="PlanDetailContent__text">データ通信量：<%= @plan.data_capacity.name %></p>
+            <p class="PlanDetailContent__text">プロバイダー：<%= @plan.provider.name %></p>
+            <% @plan.plans_services.each do |plan_services| %>
+              <p class="PlanDetailContent__text">サービス：<%= plan_services.service.name %></p>
+            <% end %>
+            <% @plan.plans_devices.each do |plan_devices| %>
+              <p class="PlanDetailContent__text">端末：<%= plan_devices.device.name %></p>
+            <% end %>
+          </div>
+        </div>
+        <div class="PlanDetail__topic">
+          <div class="PlanDetailTopic">
+            <span class="PlanDetailTopic__content">契約期間：<%= @plan.construct_period %></span>
+          </div>
+          <div class="PlanDetailTopic">
+            <span class="PlanDetailTopic__content">総合計金額：<%= @plan.total_fee %></span>
+          </div>
+        </div>
+        <div class="PlanDetail__rightfooter">
+          <div class="RightFotter">
+            <a class="RightFotter__button"></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
