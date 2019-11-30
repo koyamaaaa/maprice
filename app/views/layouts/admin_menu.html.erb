@@ -1,18 +1,17 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>App</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%= display_meta_tags(default_meta_tags) %>
+    <% set_meta_tags noinex: true, nofollow: true %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <% if flash[:alert] %>
-      <%= flash[:alert] %>
-    <% end %>
+    <% flash[:alert] if flash[:alert] %>
     <a href="/">トップ</a>
     <% if request.path != '/admin_menu' %>
       <%= link_to '管理画面トップ', dashbords_path %>
