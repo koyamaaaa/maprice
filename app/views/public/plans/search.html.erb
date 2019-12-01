@@ -1,14 +1,5 @@
-<div class="BaseLayout__sidebar">
-  <div class="Sidebar">
-    <div class="Sidebar__content">
-      <%= render partial: "search_form" %>
-    </div>
-  </div>
-</div>
-<div class="BaseLayout__article">
-  <div class="Article"%>
-    <% @search_plan_forms.each do |plan| %>
-      <%= render partial: "plan_card", locals: { plan: plan } %>
-    <% end %>
-  </div>
+<div class="Article"%>
+  <% @search_plan_forms.each do |plan| %>
+    <%= render partial: "plan_card", locals: { plan: plan } %>
+  <% end %>
 </div>

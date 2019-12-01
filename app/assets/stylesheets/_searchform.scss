@@ -17,3 +17,34 @@
   }
 
 }
+
+@media (max-width: 400px) {
+  .SearchForm {
+
+    .SearchForm__content {
+      border-bottom: 1px solid #eaeaea;
+      padding: 15px;
+
+      .SearchForm__content--box{
+        font-size: 0.8rem;
+      }
+
+      .SearchForm__content--select {
+        text-align: center;
+      }
+
+    }
+
+    .SearchForm__submit {
+      padding-top: 10px;
+      text-align: center;
+
+      .Searchform__submit--button {
+        background-color: #5B8CFF;
+        border-radius: 14px;
+        color: #fff;
+        padding: 8px;
+      }
+    }
+  }
+}

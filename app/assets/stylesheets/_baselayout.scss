@@ -3,11 +3,14 @@
 .BaseLayout {
   display: grid;
   grid-template-rows: 65px 45px 35px 1000px 50px;
-  grid-template-columns: 7% 12% 74% 7%;
+  grid-template-columns: 7% 86% 7%;
 
   .BaseLayout__header {
     grid-row: 1 / 2;
     grid-column: 1 / 5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .BaseLayout__globalnavi {
@@ -15,14 +18,45 @@
     grid-column: 1 / 5;
   }
 
-  .BaseLayout__sidebar {
+  .BaseLayout__content {
     grid-row: 4 / 5;
-    grid-column: 2 / 2;
+    grid-column: 2 / 4;
   }
 
-  .BaseLayout__article {
-    grid-row: 4 / 5;
-    grid-column: 3 / 4;
+}
+
+@media (max-width: 400px){
+  .BaseLayout {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 5% 6% 81% 8%;
+    grid-template-areas:
+        "head"
+        "navi"
+        "main"
+        "foot";
+    height: 100vh;
+
+    .BaseLayout__header {
+      grid-area: head;
+    }
+    
+    .BaseLayout__globalnavi {
+      box-shadow: 0 5px 4px 0 #ccc;
+      grid-area: navi;
+      overflow-x: auto;
+    }
+
+    .BaseLayout__content {
+      grid-area: main;
+      margin: 10px;
+      overflow-y: auto;
+    }
+
+    .BaseLayout__footer {
+      grid-area: foot;
+    }
+
   }
 
 }

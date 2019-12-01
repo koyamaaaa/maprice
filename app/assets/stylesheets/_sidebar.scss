@@ -3,8 +3,58 @@
 .Sidebar {
   width: 100%;
 
-  .Sidebar__content {
-    border: 1px solid #eaeaea;
-    padding: 15px;
+  .Sidebar__dispswitch {
+    display: none;
+  }
+
+  input#label1 {
+    display: none;
+  }
+
+}
+
+@media(max-width: 400px){
+  .Sidebar {
+    align-items: center;
+    display: grid;
+    justify-content: center;
+
+    label.Sidebar__dispswitch {
+      border-radius: 17px;
+      border: 1px solid #eaeaea;
+      display: block;
+      font-size: 0.8rem;
+      margin: 0 auto;
+      padding: 10px;
+      text-align: center;
+    }
+
+    input:checked ~ label.Sidebar__dispswitch {
+      border-radius: 17px;
+      border: 1px solid #eaeaea;
+      padding: 10px;
+      text-align: center;
+    }
+
+    label.Sidebar__dispswitch:before {
+      content: '検索条件を設定する';
+    }
+
+    input:checked ~ label.Sidebar__dispswitch:before {
+      content: '検索条件を閉じる';
+    }
+
+    .Sidebar__content {
+      display: none;
+    }
+
+    input:checked ~ .Sidebar__content {
+      border: 1px solid #eaeaea;
+      border-radius: 15px;;
+      display: inline;
+      margin-top: 10px;
+      padding: 15px;
+    }
+  
   }
 }
