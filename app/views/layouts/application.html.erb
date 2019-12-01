@@ -14,35 +14,22 @@
       <%= flash[:alert] %>
     <% end %>
     <div class="BaseLayout">
-      <div class="BaseLayout__header">
-        <div class="Header">
-          <h2 class="Header__title">maprice</h2>
-        </div>
+      <div class="Header">
+        <h2 class="Header__title">maprice</h2>
       </div>
-      <div class="BaseLayout__globalnavi">
-        <ul class="GlobalNavi">
-          <li class="GlobalNavi__menu"><a href="/">TOP</a></li>
-          <li class="GlobalNavi__menu"><a href="/plans">ポケットWiFi</a></li>
-          <li class="GlobalNavi__menu"><a href="/plans">ポケットWiFi</a></li>
-          <li class="GlobalNavi__menu"><a href="/plans">ポケットWiFi</a></li>
-          <li class="GlobalNavi__menu"><a href="/plans">ポケットWiFi</a></li>
-          <li class="GlobalNavi__menu"><a href="/plans">ポケットWiFi</a></li>
-        </ul>
-      </div>
-      <div class="BaseLayout__content">
-        <div class="Sidebar">
-          <input type="checkbox" id="label1"/>
-          <label for="label1" class="Sidebar__dispswitch"></label>
-          <div class="Sidebar__content">
-            <%= render partial: "search_form" %>
-          </div>
-        </div>
+      <ul class="GlobalNavi">
+        <li class="GlobalNavi__menu"><a href="/">TOP</a></li>
+        <li class="GlobalNavi__menu"><a href="/plans">ポケットWiFi</a></li>
+        <li class="GlobalNavi__menu"><a href="/plans">ポケットWiFi</a></li>
+        <li class="GlobalNavi__menu"><a href="/plans">ポケットWiFi</a></li>
+        <li class="GlobalNavi__menu"><a href="/plans">ポケットWiFi</a></li>
+        <li class="GlobalNavi__menu"><a href="/plans">ポケットWiFi</a></li>
+      </ul>
+      <div class="Content">
         <%= yield %>
       </div>
-      <div class="BaseLayout__footer">
-        <div class="Footer">
-          footer
-        </div>
+      <div class="Footer">
+        footer
       </div>
     </div>
   </body>

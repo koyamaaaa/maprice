@@ -4,6 +4,8 @@
   align-items: center;
   background-color: #6bccff;
   display: flex;
+  grid-row: 2 / 3;
+  grid-column: 1 / 5;
   height: 100%;
   justify-content: center;
   list-style: none;
@@ -11,6 +13,7 @@
   .GlobalNavi__menu {
     color: #fff;
     font-weight: bold;
+    text-align: center;
     width: 10%;
   }
 
@@ -25,7 +28,7 @@
   
 }
 
-@media (max-width: 400px){
+@media (max-width: 1024px){
   .GlobalNavi {
     justify-content: normal;
     margin: 0;
@@ -47,4 +50,14 @@
 
   }
   
+}
+
+@media (max-width: 400px){
+    
+  .BaseLayout__globalnavi {
+    box-shadow: 0 5px 4px 0 #ccc;
+    grid-area: navi;
+    overflow-x: auto;
+  }
+
 }

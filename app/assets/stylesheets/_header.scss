@@ -1,11 +1,21 @@
 @charset "UTF-8";
 
 .Header {
+  grid-row: 1 / 2;
+  grid-column: 1 / 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   .Header__title {
-    align-items: center;
-    display: flex;
-    justify-content: center;
+  }
+
+}
+
+@media (max-width: 600px){
+
+  .BaseLayout__header {
+    grid-area: head;
   }
 
 }

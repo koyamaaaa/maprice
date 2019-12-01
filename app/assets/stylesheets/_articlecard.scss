@@ -12,10 +12,21 @@
   padding: 2px 0 20px 0;
   width: 100%;
 
+  .ArticleCard:visited {
+    box-shadow: 0 2px 5px 2px #bfbfbf;
+  }
+
   .ArticleCard__top {
+    align-items: center;
+    display: flex;
     font-size: 1rem;
     font-weight: bold;
     height: 20%;
+    justify-content: center;
+  }
+
+  .ArticleCard__title {
+    font-size: 0.9rem;
   }
 
   .ArticleCard__content {
@@ -25,12 +36,39 @@
     width: 90%;
   }
 
-  .ArticleCard__footer {
-    height: 10%;
+  .ArticleCard__text {
+    border-bottom: 1px solid #eaeaea;
+    color: #676767;
+    font-size: 0.8rem;
+    padding: 7px 0 3px 0
   }
 
-  .ArticleCard:visited {
-    box-shadow: 0 2px 5px 2px #bfbfbf;
+  .ArticleCard__footer {
+    align-items: center;
+    display: flex;
+    font-size: 0.9rem;
+    height: 10%;
+    justify-content: space-around;
+  }
+
+}
+
+@media (max-width: 600px) {
+
+  .ArticleCard {
+    padding: 2px 0 2px 0;
+  
+    .ArticleCard__content {
+      color: #676767;
+      font-size: 0.9rem;
+      height: 60%;
+      width: 90%;
+    }
+
+    .ArticleCard__text {
+      font-size: 0.7rem;
+    }
+  
   }
 
 }

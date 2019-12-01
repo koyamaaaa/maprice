@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+.Button {
+  background-color: #5B8CFF; /*背景色*/
+  border-radius: 3px; /*角の丸み*/
+    cursor: pointer;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),
+              0 1px 5px 0 rgba(0,0,0,0.12),
+              0 3px 1px -2px rgba(0,0,0,0.2); /*影*/
+  -webkit-tap-highlight-color: transparent;
+  color: #FFF; /*文字色*/
+  display: inline-block;
+  font-size: 0.9em; /*文字サイズ*/
+  font-weight: bold;
+  letter-spacing: 0.05em; /*字間*/
+  line-height: 1;
+  margin: 0 2px 0 2px;
+  padding: 2.5% 1%; /*ボタン内の余白*/
+  text-align: center;
+  text-decoration: none;
+  transition: .3s ease-out; /*変化を緩やかに*/
+  width: 100px; /*ボタンのサイズを統一*/
+}
+
+.Button:hover {
+  box-shadow: 0 3px 3px 0 rgba(0,0,0,0.14),
+              0 1px 7px 0 rgba(0,0,0,0.12),
+              0 3px 1px -1px rgba(0,0,0,0.2);/*浮き上がるように*/
+}

@@ -3,3 +3,11 @@
 .Footer {
   background-color: #6bccff;
 }
+
+@media (max-width: 600px){
+
+  .Footer {
+    grid-area: foot;
+  }
+
+}

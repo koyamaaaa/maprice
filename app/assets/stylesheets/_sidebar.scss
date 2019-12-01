@@ -1,7 +1,12 @@
 @charset "UTF-8";
 
 .Sidebar {
-  width: 100%;
+  border: 1px solid #eaeaea;
+  border-radius: 15px;;
+  display: inline;
+  height: 72%;
+  margin-top: 5px;
+  padding: 15px;
 
   .Sidebar__dispswitch {
     display: none;
@@ -13,11 +18,15 @@
 
 }
 
-@media(max-width: 400px){
+@media (max-width: 600px){
   .Sidebar {
     align-items: center;
+    border: none;
     display: grid;
+    height: auto;
     justify-content: center;
+    margin-top: 0;
+    width: 100%;
 
     label.Sidebar__dispswitch {
       border-radius: 17px;

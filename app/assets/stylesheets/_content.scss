@@ -1,0 +1,19 @@
+@charset "UTF-8";
+
+.Content {
+  display: flex;
+  grid-row: 4 / 5;
+  grid-column: 2 / 3;
+  justify-content: center;
+}
+
+@media (max-width: 600px){
+
+  .Content {
+    display: inline;
+    grid-area: main;
+    margin: 10px;
+    overflow-y: auto;
+  }
+
+}

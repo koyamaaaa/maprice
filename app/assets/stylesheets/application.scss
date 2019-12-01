@@ -1,13 +1,11 @@
 /* CSS Reset */
 @import "sanitize";
 @import "base";
+@import "button";
 @import "article";
 @import "articlecard";
-@import "articlecard_content";
-@import "articlecard_footer";
-@import "articlecard_top";
-@import "articleplan";
 @import "baselayout";
+@import "content";
 @import "footer";
 @import "globalnavi";
 @import "header";
@@ -16,5 +14,4 @@
 @import "plandetailtop";
 @import "plandetailtopic";
 @import "searchform";
-@import "searchformcontent";
 @import "sidebar";
