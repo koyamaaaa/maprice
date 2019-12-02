@@ -5,8 +5,9 @@
   border-radius: 15px;;
   display: inline;
   height: 72%;
-  margin-top: 5px;
+  margin: 15px;
   padding: 15px;
+  width: 270px;
 
   .Sidebar__dispswitch {
     display: none;
@@ -25,10 +26,11 @@
     display: grid;
     height: auto;
     justify-content: center;
-    margin-top: 0;
+    margin: 0;
     width: 100%;
 
-    label.Sidebar__dispswitch {
+    label.Sidebar__dispswitch,
+    label.Sidebar__dispswitch--standard {
       border-radius: 17px;
       border: 1px solid #eaeaea;
       display: block;
@@ -38,7 +40,8 @@
       text-align: center;
     }
 
-    input:checked ~ label.Sidebar__dispswitch {
+    input:checked ~ label.Sidebar__dispswitch,
+    label.Sidebar__dispswitch--standard {
       border-radius: 17px;
       border: 1px solid #eaeaea;
       padding: 10px;
@@ -51,6 +54,14 @@
 
     input:checked ~ label.Sidebar__dispswitch:before {
       content: '検索条件を閉じる';
+    }
+
+    label.Sidebar__dispswitch--standard:before {
+      content: '開く';
+    }
+
+    input:checked ~ label.Sidebar__dispswitch--standard:before {
+      content: '閉じる';
     }
 
     .Sidebar__content {

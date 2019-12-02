@@ -5,6 +5,11 @@ body {
                YuGothic,'Yu Gothic','游ゴシック体','游ゴシック',Meiryo,sans-serif;
 }
 
+a,
+a:visited {
+  text-decoration: none;
+}
+
 p {
   display: block;
   margin-block-start: 0em;
