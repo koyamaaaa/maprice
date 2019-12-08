@@ -1,28 +1,35 @@
 <div class="Article__content">
   <div class="ArticleCard">
     <div class="ArticleCard__top">
-      <div class="ArticleCardTop">
-        <%= link_to({ controller: 'plans', action: 'show', id: plan.id }, { class: 'ArticleCardTop__title' }) do %>
-          <%= plan.name %> <%= plan.provider.name %>
-        <% end %>
-      </div>
+      <%= link_to({ controller: 'plans', action: 'show', id: plan.id }, { class: 'ArticleCard__name' }) do %>
+        <%= plan.name %> <%= plan.provider.name %>
+      <% end %>
     </div>
     <div class="ArticleCard__content">
-      <div class="ArticleCardContent">
-        <p class="ArticleCardContent__text">契約期間：<%= plan.construct_period %></p>
-        <p class="ArticleCardContent__text">契約期間合計：<%= plan.total_fee %>円</p>
-        <p class="ArticleCardContent__text">端末代金：<%= plan.plan_device_fee %>円</p>
-        <% plan.plans_campaigns.each do |plan_campaigns| %>
-          <p class="ArticleCardContent__text">キャンペーン：<%= plan_campaigns.campaign.name %></p>
-        <% end %>
-        <p class="ArticleCardContent__text">データ通信量：<%= plan.data_capacity.name %></p>
+      <div class="ArticleCard__box">
+        <p class="ArticleCard__title">契約期間</p>
+        <p class="ArticleCard__text"><%= plan.construct_period %></p>
+      </div>
+      <div class="ArticleCard__box">
+        <p class="ArticleCard__title">契約期間合計</p>
+        <p class="ArticleCard__text"><%= plan.total_fee %>円</p>
+      </div>
+      <div class="ArticleCard__box">
+        <p class="ArticleCard__title">月間データ通信量</p>
+        <p class="ArticleCard__text"><%= plan.data_capacity.name %></p>
+      </div>
+      <div class="ArticleCard__box">
+        <p class="ArticleCard__title">カテゴリ</p>
+        <p class="ArticleCard__text">
+          <% plan.plans_services.each do |plan_services| %>
+            <%= plan_services.service.name %>
+          <% end %>
+        </p>
       </div>
     </div>
     <div class="ArticleCard__footer">
-      <div class="ArticleCardFooter">
-        <a class="ArticleCardFooter__button" href="<%= plan.plan_url %>">公式サイト</a>
-        <%= link_to( '詳細', { controller: 'plans', action: 'show', id: plan.id }, { class: 'ArticleCardFooter__button' }) %></a>
-      </div>
+      <a class="Button" href="<%= plan.plan_url %>">公式サイト</a>
+      <%= link_to( '詳細', { controller: 'plans', action: 'show', id: plan.id }, { class: 'Button' }) %>
     </div>
   </div>
 </div>

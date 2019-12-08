@@ -1,0 +1,22 @@
+@charset "UTF-8";
+
+.BaseLayout {
+  display: grid;
+  grid-template-rows: 65px 45px 35px minmax(500px, auto) 100px;
+  grid-template-columns: 7% 86% 7%;
+}
+
+@media (max-width: 768px){
+  
+  .BaseLayout {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 5% 6% 89%;
+    grid-template-areas:
+        "head"
+        "navi"
+        "main";
+    height: 100vh;
+  }
+
+}

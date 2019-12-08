@@ -1,21 +1,65 @@
-<%= link_to 'プラン検索に戻る', controller: 'plans', action: 'index' %>
-<div>
-  <p>ID：<%= @plan.id %></p>
-  <p>プラン：<%= @plan.name %></p>
-  <p>プラン内容：<%= @plan.p_content %></p>
-  <p>契約期間：<%= @plan.construct_period %></p>
-  <p>総合計金額：<%= @plan.total_fee %></p>
-  <p>端末代金：<%= @plan.plan_device_fee %></p>
-  <p>URL：<%= @plan.plan_url %></p>
-  <% @plan.plans_campaigns.each do |plan_campaigns| %>
-    <p>キャンペーン：<%= plan_campaigns.campaign.name %></p>
-  <% end %>
-  <p>データ通信量：<%= @plan.data_capacity.name %></p>
-  <p>プロバイダー：<%= @plan.provider.name %></p>
-  <% @plan.plans_services.each do |plan_services| %>
-    <p>サービス：<%= plan_services.service.name %></p>
-  <% end %>
-  <% @plan.plans_devices.each do |plan_devices| %>
-    <p>端末：<%= plan_devices.device.name %></p>
-  <% end %>
+<% set_meta_tags title: @plan.provider.name + ' ' +@plan.name, description: @plan.provider.name + ' ' + @plan.name %>
+<div class="PlanDetailSidebar">
+  <input type="checkbox" id="label1"/>
+  <label for="label1" class="PlanDetailSidebar__dispswitch--standard"></label>
+  <div class="PlanDetailSidebar__content">
+    <a class="PlanDetail__rfutterbutton" href="/plans">< プラン一覧に戻る</a>
+  </div>
+</div>
+<div class="Article">
+  <div class="PlanDetail">
+    <div class="PlanDetail__top">
+      <h2 class="PlanDetail__title"><%= @plan.name %> <%= @plan.provider.name %></h2>
+    </div>
+    <div class="PlanDetail__topic">
+      <div class="PlanDetail__topiccontent">
+        <div class="PlanDetail__topictitle">契約期間</div>
+        <div class="PlanDetail__topictext"><%= @plan.construct_period %></div>
+      </div>
+      <div class="PlanDetail__topiccontent">
+        <div class="PlanDetail__topictitle">総合計金額</div>
+        <div class="PlanDetail__topictext"><%= @plan.total_fee %>円</div>
+      </div>
+    </div>
+    <div class="PlanDetail__button"><a href="<%= @plan.plan_url %>">公式サイトを見る</a></div>
+    <div class="PlanDetail__content">
+      <div class="PlanDetail__category">
+        <p class="PlanDetail__item">プラン内容</p>
+        <p class="PlanDetail__text"><%= @plan.p_content %></p>
+      </div>
+      <div class="PlanDetail__category">
+        <p class="PlanDetail__item">端末代金</p>
+        <p class="PlanDetail__text"><%= @plan.plan_device_fee %></p>
+      </div>
+      <div class="PlanDetail__category">
+        <p class="PlanDetail__item">キャンペーン</p>
+        <% @plan.plans_campaigns.each do |plan_campaigns| %>
+          <p class="PlanDetail__text"><%= plan_campaigns.campaign.name %></p>
+        <% end %>
+      </div>
+      <div class="PlanDetail__category">
+        <p class="PlanDetail__item">データ通信量</p>
+        <p class="PlanDetail__text"><%= @plan.data_capacity.name %></p>
+      </div>
+      <div class="PlanDetail__category">
+        <p class="PlanDetail__item">カテゴリ</p>
+        <p class="PlanDetail__text">
+          <% @plan.plans_services.each do |plan_services| %>
+            <%= plan_services.service.name %>
+          <% end %>
+        </p>
+      </div>
+      <div class="PlanDetail__category">
+        <p class="PlanDetail__item">端末</p>
+        <p class="PlanDetail__text">
+          <% @plan.plans_devices.each do |plan_devices| %>
+            <%= plan_devices.device.name %>
+          <% end %>
+        </p>
+      </div>
+    </div>
+    <div class="PlanDetail__rfooter">
+      <a class="PlanDetail__rfutterbutton" href="/plans">< WiFi一覧に戻る</a>
+    </div>
+  </div>
 </div>

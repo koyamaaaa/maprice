@@ -1,40 +1,46 @@
 <%= form_with model: @search_plan_form, url: search_plans_path, method: :get, local: true do |f| %>
   <div class="SearchForm">
     <div class="SearchForm__title">
-      <%= f.label 'サービス' %>
+      カテゴリ
     </div>
-    <div class="SearchFormContent">
-      <div class="SearchFormContent__input">
-        <%= f.collection_check_boxes :service_ids, Service.all, :id, :name, { prompt: "" }, { class: "SearchFormContent__input" } %>
-      </div>
-    </div>
-  </div>
-  <div class="SearchForm">
-    <div class="SearchForm__title">
-      <%= f.label '端末' %>
-    </div>
-    <div class="SearchFormContent">
-      <div class="SearchForm__input">
-        <%= f.collection_check_boxes :device_ids, Device.all, :id, :name %>
-      </div>
+    <div class="SearchForm__content">
+      <%= f.collection_check_boxes :service_ids, Service.all, :id, :name do |i| %>
+        <div class="SearchForm__checkbox">
+          <%= i.check_box + i.label %>
+        </div>
+      <% end %>
     </div>
   </div>
   <div class="SearchForm">
     <div class="SearchForm__title">
-      <%= f.label 'キャンペーン' %>
+      端末
     </div>
-    <div class="SearchFormContent">
-      <div class="SearchFormContent__input">
-        <%= f.collection_check_boxes :campaign_ids, Campaign.all, :id, :name %>
-      </div>
+    <div class="SearchForm__content">
+      <%= f.collection_check_boxes :device_ids, Device.all, :id, :name do |i| %>
+        <div class="SearchForm__checkbox">
+          <%= i.check_box + i.label %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="SearchForm">
+    <div class="SearchForm__title">
+      キャンペーン
+    </div>
+    <div class="SearchForm__content">
+      <%= f.collection_check_boxes :campaign_ids, Campaign.all, :id, :name do |i| %>
+        <div class="SearchForm__checkbox">
+          <%= i.check_box + i.label %>
+        </div>
+      <% end %>
     </div>
   </div>
   <div class="SearchForm">
     <div class="SearchForm__title">
       <%= f.label 'データ通信容量' %>
     </div>
-    <div class="SearchFormContent">
-      <div class="SearchFormContent__input">
+    <div class="SearchForm__content">
+      <div class="SearchForm__selectbox">
         <%= f.collection_select :data_capacity_id, DataCapacity.all, :id, :name, { include_blank: '選択してください'} %>
       </div>
     </div>
@@ -43,8 +49,8 @@
     <div class="SearchForm__title">
       <%= f.label 'プロバイダー' %>
     </div>
-    <div class="SearchFormContent">
-      <div class="SearchFormContent__input">
+    <div class="SearchForm__content">
+      <div class="SearchForm__selectbox">
         <%= f.collection_select :provider_id, Provider.all, :id, :name, { include_blank: '選択してください'} %>
       </div>
     </div>
@@ -53,17 +59,15 @@
     <div class="SearchForm__title">
       <%= f.label '回線' %>
     </div>
-    <div class="SearchFormContent">
-      <div class="SearchFormContent__input">
+    <div class="SearchForm__content">
+      <div class="SearchForm__selectbox">
         <%= f.collection_select :net_line_id, NetLine.all, :id, :name, { include_blank: '選択してください'} %>
       </div>
     </div>
   </div>
   <div class="SearchForm">
-    <div class="SearchFormContent">
-      <div class="SearchFormContent__input">
-        <%= f.submit "Search" %>
-      </div>
+    <div class="SearchForm__submit">
+      <%= f.submit "検索する", { class: "Button" } %>
     </div>
   </div>
 <% end %>

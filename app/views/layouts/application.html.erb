@@ -4,7 +4,7 @@
     <title>App</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -13,20 +13,28 @@
     <% if flash[:alert] %>
       <%= flash[:alert] %>
     <% end %>
-    <div class="TopLayout">
-      <div class="TopLayout__header">
-        <div class="Header">
-          <h2 class="Header__title">maprice</h2>
-        </div>
+    <div class="BaseLayout">
+      <div class="Header">
+        <h2 class="Header__title">maprice</h2>
       </div>
-      <div class="TopLayout__globalnavi">
-        <div class="GlobalNavi">
-          <a class="GlobalNavi__menu" href="/">TOP</a>
-          <a class="GlobalNavi__menu" href="/plans">ポケットWiFi</a>
-        </div>
+      <ul class="GlobalNavi">
+        <li class="GlobalNavi__menu"><a href="/">TOP</a></li>
+        <li class="GlobalNavi__menu"><a href="/plans">WiFiを探す</a></li>
+      </ul>
+      <div class="Content">
+        <%= yield %>
       </div>
-      <%= yield %>
-      <div class="TopLayout__footer">
+      <div class="Footer">
+        <div class="Footer__content">
+          <div class="Footer__item"><a href="/">TOP</a></div>
+          <div class="Footer__item"><a href="/plans">WiFi</a></div>
+          <div class="Footer__item"><a href="#">利用規約</a></div>
+          <div class="Footer__item"><a href="#">プライバシーポリシー</a></div>
+          <div class="Footer__item"><a href="#">特定商取引に基づく表記</a></div>
+        </div>
+        <div class="Footer__copyright">
+          <small>&copy;2019 maprice</small>
+        </div>
       </div>
     </div>
   </body>
