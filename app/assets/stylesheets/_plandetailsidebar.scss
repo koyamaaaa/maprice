@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-.Sidebar {
+.PlanDetailSidebar {
   border: 1px solid #e6e5e5;
   border-radius: 15px;;
   display: inline;
@@ -9,7 +9,7 @@
   padding: 15px;
   width: 270px;
 
-  .Sidebar__dispswitch {
+  .PlanDetailSidebar__dispswitch {
     display: none;
   }
 
@@ -20,17 +20,18 @@
 }
 
 @media (max-width: 768px){
-  .Sidebar {
+  .PlanDetailSidebar {
     align-items: center;
     border: none;
-    display: grid;
+    // display: grid;
+    display: none; // スマホ非表示
     height: auto;
     justify-content: center;
     margin: 0;
     width: 100%;
 
-    label.Sidebar__dispswitch,
-    label.Sidebar__dispswitch--standard {
+    label.PlanDetailSidebar__dispswitch,
+    label.PlanDetailSidebar__dispswitch--standard {
       border-radius: 17px;
       border: 1px solid #e6e5e5;
       display: block;
@@ -40,27 +41,27 @@
       text-align: center;
     }
 
-    input:checked ~ label.Sidebar__dispswitch,
-    label.Sidebar__dispswitch--standard {
+    input:checked ~ label.PlanDetailSidebar__dispswitch,
+    label.PlanDetailSidebar__dispswitch--standard {
       border-radius: 17px;
       border: 1px solid #e6e5e5;
       padding: 10px;
       text-align: center;
     }
 
-    label.Sidebar__dispswitch:before {
+    label.PlanDetailSidebar__dispswitch:before {
       content: '検索条件を設定する';
     }
 
-    input:checked ~ label.Sidebar__dispswitch:before {
+    input:checked ~ label.PlanDetailSidebar__dispswitch:before {
       content: '検索条件を閉じる';
     }
 
-    label.Sidebar__dispswitch--standard:before {
+    label.PlanDetailSidebar__dispswitch--standard:before {
       content: '開く';
     }
 
-    input:checked ~ label.Sidebar__dispswitch--standard:before {
+    input:checked ~ label.PlanDetailSidebar__dispswitch--standard:before {
       content: '閉じる';
     }
 
@@ -68,7 +69,7 @@
       display: none;
     }
 
-    input:checked ~ .Sidebar__content {
+    input:checked ~ .PlanDetailSidebar__content {
       border: 1px solid #e6e5e5;
       border-radius: 15px;;
       display: inline;

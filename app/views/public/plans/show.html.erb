@@ -1,9 +1,9 @@
 <% set_meta_tags title: @plan.provider.name + ' ' +@plan.name, description: @plan.provider.name + ' ' + @plan.name %>
-<div class="Sidebar">
+<div class="PlanDetailSidebar">
   <input type="checkbox" id="label1"/>
-  <label for="label1" class="Sidebar__dispswitch--standard"></label>
-  <div class="Sidebar__content">
-    hello
+  <label for="label1" class="PlanDetailSidebar__dispswitch--standard"></label>
+  <div class="PlanDetailSidebar__content">
+    <a class="PlanDetail__rfutterbutton" href="/plans">< プラン一覧に戻る</a>
   </div>
 </div>
 <div class="Article">
@@ -12,8 +12,14 @@
       <h2 class="PlanDetail__title"><%= @plan.name %> <%= @plan.provider.name %></h2>
     </div>
     <div class="PlanDetail__topic">
-      <div class="PlanDetail__topiccontent">契約期間：<%= @plan.construct_period %></div>
-      <div class="PlanDetail__topiccontent">総合計金額：<%= @plan.total_fee %></div>
+      <div class="PlanDetail__topiccontent">
+        <div class="PlanDetail__topictitle">契約期間</div>
+        <div class="PlanDetail__topictext"><%= @plan.construct_period %></div>
+      </div>
+      <div class="PlanDetail__topiccontent">
+        <div class="PlanDetail__topictitle">総合計金額</div>
+        <div class="PlanDetail__topictext"><%= @plan.total_fee %>円</div>
+      </div>
     </div>
     <div class="PlanDetail__button"><a href="<%= @plan.plan_url %>">公式サイトを見る</a></div>
     <div class="PlanDetail__content">
@@ -26,10 +32,6 @@
         <p class="PlanDetail__text"><%= @plan.plan_device_fee %></p>
       </div>
       <div class="PlanDetail__category">
-        <p class="PlanDetail__item">URL</p>
-        <p class="PlanDetail__text"><%= @plan.plan_url %></p>
-      </div>
-      <div class="PlanDetail__category">
         <p class="PlanDetail__item">キャンペーン</p>
         <% @plan.plans_campaigns.each do |plan_campaigns| %>
           <p class="PlanDetail__text"><%= plan_campaigns.campaign.name %></p>
@@ -40,7 +42,7 @@
         <p class="PlanDetail__text"><%= @plan.data_capacity.name %></p>
       </div>
       <div class="PlanDetail__category">
-        <p class="PlanDetail__item">サービス</p>
+        <p class="PlanDetail__item">カテゴリ</p>
         <p class="PlanDetail__text">
           <% @plan.plans_services.each do |plan_services| %>
             <%= plan_services.service.name %>
@@ -57,7 +59,7 @@
       </div>
     </div>
     <div class="PlanDetail__rfooter">
-      <a class="PlanDetail__rfutterbutton"></a>
+      <a class="PlanDetail__rfutterbutton" href="/plans">< WiFi一覧に戻る</a>
     </div>
   </div>
 </div>

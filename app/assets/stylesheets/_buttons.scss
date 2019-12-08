@@ -1,0 +1,30 @@
+@charset "UTF-8";
+
+.Buttons {
+  background-color: #41d604;
+  border-radius: 43px;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),
+              0 1px 5px 0 rgba(0,0,0,0.12),
+              0 3px 1px -2px rgba(0,0,0,0.2);
+  color: #fff;
+  cursor: pointer;
+  font-size: 1.0rem;
+  font-weight: bold;
+  margin: 16px auto;
+  padding: 15px;
+  text-align: center;
+  transition: .3s ease-out;
+  -webkit-tap-highlight-color: transparent;
+  width: 70%;
+}
+
+
+.Buttons:hover {
+  box-shadow: 0 3px 3px 0 rgba(0,0,0,0.14),
+              0 1px 7px 0 rgba(0,0,0,0.12),
+              0 3px 1px -1px rgba(0,0,0,0.2);/*浮き上がるように*/
+}
+
+.Buttons a {
+  color: #fff;
+}

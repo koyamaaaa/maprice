@@ -3,7 +3,7 @@ class Public::PlansController < ApplicationController
 
   def index
     @search_plan_form = SearchPlanForm.new
-    @plans = Plan.all
+    @plans = Plan.includes([:service, :data_capacity])
     render '/public/plans/index'
   end
 

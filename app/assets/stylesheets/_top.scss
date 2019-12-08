@@ -1,0 +1,15 @@
+@charset "UTF-8";
+
+.Top {
+  align-items: center;
+  display: grid;
+  height: 100%;
+  justify-content: center;
+
+  .Top__discription {
+    color: #00a9ff;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+
+}

@@ -1,7 +1,7 @@
 <%= form_with model: @search_plan_form, url: search_plans_path, method: :get, local: true do |f| %>
   <div class="SearchForm">
     <div class="SearchForm__title">
-      サービス
+      カテゴリ
     </div>
     <div class="SearchForm__content">
       <%= f.collection_check_boxes :service_ids, Service.all, :id, :name do |i| %>
