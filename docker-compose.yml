@@ -12,6 +12,7 @@ services:
       - chrome
     environment:
       - MYSQL_ROOT_PASSWORD
+      - EDITOR="vi"
   db:
     image: mysql:5.7
     environment:
