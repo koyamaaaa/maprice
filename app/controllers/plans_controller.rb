@@ -3,7 +3,7 @@ class PlansController < ApplicationController
   layout 'admin_menu'
 
   def index
-    @plans = Plan.all
+    @plans = Plan.all.includes(:provider, :service, :devices)
     render '/admin_menu/plans/index'
   end
 
