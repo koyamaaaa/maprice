@@ -14,22 +14,42 @@
     <% flash[:alert] if flash[:alert] %>
     <a href="/">トップ</a>
     <% if request.path != '/admin_menu' %>
-      <%= link_to '管理画面トップ', dashbords_path %>
+    <%= link_to '管理画面トップ', dashbords_path %>
     <% end %>
     <% if logged_in? %>
-      <%= link_to 'ログアウト', logout_path, method: :delete %>
+    <%= link_to 'ログアウト', logout_path, method: :delete %>
     <% else %>
-      <%= link_to 'ログイン', login_path %>
+    <%= link_to 'ログイン', login_path %>
     <% end %>
-    <%= link_to '管理画面トップ', controller: 'dashbords', action: 'index' %>
-    <%= link_to 'プラン一覧', plans_path %>
-    <%= link_to 'キャンペーン一覧', campaigns_path %>
-    <%= link_to '通信容量一覧' , data_capacities_path %>
-    <%= link_to '端末一覧', devices_path %>
-    <%= link_to '回線一覧' , net_lines_path %>
-    <%= link_to 'サービス一覧', services_path %>
-    <%= link_to 'プロバイダー一覧', providers_path %>
-    <%= link_to 'ユーザー一覧', users_path %>
-    <%= yield %>
+    <div class="BaseLayout">
+      <div class="Header">
+        <h2 class="Header__title">maprice admin</h2>
+      </div>
+      <ul class="GlobalNavi">
+        <li class="GlobalNavi__menu"><%= link_to '管理画面トップ', controller: 'dashbords', action: 'index' %></li>
+        <li class="GlobalNavi__menu"><%= link_to 'キャンペーン一覧', campaigns_path %></li>
+        <li class="GlobalNavi__menu"><%= link_to '通信容量一覧' , data_capacities_path %></li>
+        <li class="GlobalNavi__menu"><%= link_to '端末一覧', devices_path %></li>
+        <li class="GlobalNavi__menu"><%= link_to '回線一覧' , net_lines_path %></li>
+        <li class="GlobalNavi__menu"><%= link_to 'サービス一覧', services_path %></li>
+        <li class="GlobalNavi__menu"><%= link_to 'プロバイダー一覧', providers_path %></li>
+        <li class="GlobalNavi__menu"><%= link_to 'ユーザー一覧', users_path %></li>
+      </ul>
+      <div class="Content">
+        <%= yield %>
+      </div>
+      <div class="Footer">
+        <div class="Footer__content">
+          <div class="Footer__item"><a href="/">TOP</a></div>
+          <div class="Footer__item"><a href="/plans">WiFi</a></div>
+          <div class="Footer__item"><a href="#">利用規約</a></div>
+          <div class="Footer__item"><a href="#">プライバシーポリシー</a></div>
+          <div class="Footer__item"><a href="#">特定商取引に基づく表記</a></div>
+        </div>
+        <div class="Footer__copyright">
+          <small>&copy;2019 maprice</small>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
