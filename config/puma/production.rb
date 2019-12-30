@@ -18,4 +18,4 @@ preload_app!
 # デーモンとして起動
 # daemonize
 # 標準出力と標準エラー出力をファイルに出力
-# stdout_redirect "#{tmp_path}/logs/puma.stdout.log", "#{tmp_path}/logs/puma.stderr.log", true
+stdout_redirect "#{tmp_path}/logs/puma.stdout.log", "#{tmp_path}/logs/puma.stderr.log", true
