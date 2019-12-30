@@ -9,7 +9,7 @@ bind "unix://#{tmp_path}/sockets/puma.sock"
 # pidfile "#{tmp_path/pids/puma.pid}"
 
 # スレッド数
-threas 3, 3 # 最小数, 最大数
+threads 3, 3 # 最小数, 最大数
 # プロセス数
 workers 2 # 起動数
 # メモリ最適化(Copy on Writeが使われるようになる)
