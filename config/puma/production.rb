@@ -6,7 +6,7 @@ tmp_path = "#{File.expand_path("../../..", __FILE__)}/tmp"
 # bindでUNIX Socketにバインド
 bind "unix://#{tmp_path}/sockets/puma.sock"
 # プロセス監視のために作成(bindするだけなら不要)
-pidfile "#{tmp_path/pids/puma.pid}"
+# pidfile "#{tmp_path/pids/puma.pid}"
 
 # スレッド数
 threas 3, 3 # 最小数, 最大数
