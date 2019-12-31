@@ -1,10 +1,18 @@
-<%= form_with model: @net_line do |f| %>
+<div class="Admin">
+  <div class="Admin__content">
+    <%= form_with model: @net_line do |f| %>
+    <div class="AdminCard">
+      <div class="AdminCard__content--edit">
 
-  <%= f.label :name, '回線' %>
-  <%= f.text_field :name %>
+        <%= f.label :name, '回線' %>
+        <%= f.text_field :name %>
 
-  <%= f.submit %>
-<% end %>
+        <%= f.submit %>
+      </div>
+    </div>
+    <% end %>
 
-<%= link_to '新規作成', new_net_line_path %>
-<%= link_to '削除', net_line_path(@net_line), method: :delete, data: { confirm: '関連プランも削除されます。本当に削除しますか？' }%>
+    <%= link_to '新規作成', new_net_line_path %>
+    <%= link_to '削除', net_line_path(@net_line), method: :delete, data: { confirm: '関連プランも削除されます。本当に削除しますか？' }%>
+  </div>
+</div>

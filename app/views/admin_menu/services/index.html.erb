@@ -1,8 +1,17 @@
-<%= link_to '新規作成', new_service_path %>
-<div>
-  <% @services.each do |service| %>
-    <p>ID：<%= service.id %></p>
-    <p>プラン：<%= link_to service.name, edit_service_path(service) %></p>
-    <p><%= link_to '削除', service_path(service), method: :delete, data: { confirm: '関連プランも削除されます。本当に削除しますか？' } %></p>
-  <% end %>
+<div class="Admin">
+  <h1>サービス一覧</h1>
+  <%= link_to '新規作成', new_service_path %>
+  <div class="Admin__content">
+    <% @services.each do |service| %>
+    <div class="AdminCard">
+      <div class="AdminCard__top">
+        <h2><%= link_to service.name, edit_service_path(service) %></h2>
+      </div>
+      <div class="AdminCard__content">
+        <p>ID：<%= service.id %></p>
+        <p><%= link_to '削除', service_path(service), method: :delete, data: { confirm: '関連プランも削除されます。本当に削除しますか？' } %></p>
+      </div>
+    </div>
+    <% end %>
+  </div>
 </div>

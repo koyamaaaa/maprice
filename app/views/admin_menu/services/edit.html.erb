@@ -1,10 +1,17 @@
-<%= form_with model: @service, local: true do |f| %>
+<div class="Admin">
+  <div class="Admin__content">
+    <%= form_with model: @service, local: true do |f| %>
+    <div class="AdminCard">
+      <div class="AdminCard__content--edit">
+        <%= f.label :name, 'サービス' %>
+        <%= f.text_field :name %>
 
-  <%= f.label :name, 'サービス' %>
-  <%= f.text_field :name %>
+        <%= f.submit %>
+      </div>
+    </div>
+    <% end %>
 
-  <%= f.submit %>
-<% end %>
-
-<%= link_to '新規作成', new_service_path %>
-<%= link_to '削除', service_path(@service), method: :delete, data: { confirm: '関連プランも削除されます。本当に削除しますか？' } %>
+    <%= link_to '新規作成', new_service_path %>
+    <%= link_to '削除', service_path(@service), method: :delete, data: { confirm: '関連プランも削除されます。本当に削除しますか？' } %>
+  </div>
+</div>

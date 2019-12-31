@@ -1,73 +1,58 @@
-<%= link_to '新規作成', new_plan_path %>
-<div class="PlanDetailSidebar">
-</div>
-<div class="Article">
-  <% @plans.each do |plan| %>
-    <div class="PlanDetail">
-      <div class="PlanDetail__top">
-        <h2 class="PlanDetail__title"><%= plan.name %><%= plan.provider.name %></h2>
+<div class="Admin">
+  <h1>プラン一覧</h1>
+  <%= link_to '新規作成', new_plan_path, { class: "Admin__link"} %>
+  <div class="Admin__content">
+    <% @plans.each do |plan| %>
+    <div class="AdminCard">
+      <div class="AdminCard__top">
+        <h2><%= plan.name %><%= plan.provider.name %></h2>
       </div>
-      <div class="PlanDetail__category">
-        <p class="PlanDetail__item">ID</p>
-        <p class="PlanDetail__text"><%= plan.id %></p>
-      </div>
-      <div class="PlanDetail__category">
-        <p class="PlanDetail__item">プラン</p>
-        <p class="PlanDetail__text"><%= link_to plan.name, edit_plan_path(plan) %></p>
-      </div>
-      <div class="PlanDetail__category">
-        <p class="PlanDetail__item">プラン内容</p>
-        <p class="PlanDetail__text"><%= plan.p_content %></p>
-      </div>
-      <div class="PlanDetail__category">
-        <p class="PlanDetail__item">契約期間</p>
-        <p class="PlanDetail__text"><%= plan.construct_period %></p>
-      </div>
-      <div class="PlanDetail__category">
-        <p class="PlanDetail__item">総合計金額</p>
-        <p class="PlanDetail__text"><%= plan.total_fee %></p>
-      </div>
-      <div class="PlanDetail__category">
-        <p class="PlanDetail__item">端末代金</p>
-        <p class="PlanDetail__text"><%= plan.plan_device_fee %></p>
-      </div>
-      <div class="PlanDetail__category">
-        <p class="PlanDetail__item">URL</p>
-        <p class="PlanDetail__text"><%= plan.plan_url %></p>
-      </div>
-      <div class="PlanDetail__category">
-        <p class="PlanDetail__item">キャンペーン</p>
-        <p class="PlanDetail__text">
+      <div class="AdminCard__content">
+
+        <p>ID:<%= plan.id %></p>
+
+        <p>プラン:<%= link_to plan.name, edit_plan_path(plan) %></p>
+
+        <p>プラン内容:<%= plan.p_content %></p>
+
+        <p>契約期間:<%= plan.construct_period %></p>
+
+        <p>総合計金額:<%= plan.total_fee %></p>
+
+        <p>端末代金:<%= plan.plan_device_fee %></p>
+
+        <p>URL:<%= plan.plan_url %></p>
+
+        <p>キャンペーン</p>
+        <p>
           <% plan.plans_campaigns.each do |plan_campaigns| %>
-            <%= plan_campaigns.campaign.name %>
+          <%= plan_campaigns.campaign.name %>
           <% end %>
         </p>
-      </div>
-      <div class="PlanDetail__category">
-        <p class="PlanDetail__item">データ通信量</p>
-        <p class="PlanDetail__text"><%= plan.data_capacity.name %></p>
-      </div>
-      <div class="PlanDetail__category">
-        <p class="PlanDetail__item">プロバイダー</p>
-        <p class="PlanDetail__text"><%= plan.provider.name %></p>
-      </div>
-      <div class="PlanDetail__category">
-        <p class="PlanDetail__item">カテゴリ</p>
-        <p class="PlanDetail__text">
+
+        <p>データ通信量:<%= plan.data_capacity.name %></p>
+
+        <p>プロバイダー:<%= plan.provider.name %></p>
+
+        <p>カテゴリ</p>
+        <p>
           <% plan.plans_services.each do |plan_services| %>
-            <%= plan_services.service.name %>
+          <%= plan_services.service.name %>
           <% end %>
         </p>
-      </div>
-      <div class="PlanDetail__category">
-        <p class="PlanDetail__item">端末</p>
-        <p class="PlanDetail__text">
+
+
+        <p>端末</p>
+        <p>
           <% plan.plans_devices.each do |plan_devices| %>
-            <%= plan_devices.device.name %>
+          <%= plan_devices.device.name %>
           <% end %>
         </p>
+
+        <p><%= link_to '削除', plan_path(plan), method: :delete, data: { confirm: '本当に削除しますか？' } %></p>
+
       </div>
-      <p><%= link_to '削除', plan_path(plan), method: :delete, data: { confirm: '本当に削除しますか？' } %></p>
     </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>

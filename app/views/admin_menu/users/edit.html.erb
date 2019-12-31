@@ -1,18 +1,25 @@
-<%= form_with model: @user, url: user_path, method: :put, local: true do |f| %>
+<div class="Admin">
+  <div class="Admin__content">
+    <%= form_with model: @user, url: user_path, method: :put, local: true do |f| %>
+    <div class="AdminCard">
+      <div class="AdminCard__content--edit">
+        <%= f.label :name, 'ユーザー名' %>
+        <%= f.text_field :name %>
 
-  <%= f.label :name, 'ユーザー名' %>
-  <%= f.text_field :name %>
+        <%= f.label :email, 'メールアドレス' %>
+        <%= f.text_field :email %>
 
-  <%= f.label :email, 'メールアドレス' %>
-  <%= f.text_field :email %>
+        <%= f.label :password, '新しいパスワード' %>
+        <%= f.text_field :password %>
 
-  <%= f.label :password, '新しいパスワード' %>
-  <%= f.text_field :password %>
+        <%= f.label :password_confirmation, '新しい確認' %>
+        <%= f.text_field :password_confirmation %>
 
-  <%= f.label :password_confirmation, '新しい確認' %>
-  <%= f.text_field :password_confirmation %>
+        <%= f.submit %>
+      </div>
+    </div>
+    <% end %>
 
-  <%= f.submit %>
-<% end %>
-
-<%= link_to '削除', user_path(@user), method: :delete %>
+    <%= link_to '削除', user_path(@user), method: :delete %>
+  </div>
+</div>
