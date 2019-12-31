@@ -1,10 +1,17 @@
-<%= form_with model: @data_capacity do |f| %>
+<div class="Admin">
+  <div class="Admin__content">
+    <%= form_with model: @data_capacity do |f| %>
+    <div class="AdminCard">
+      <div class="AdminCard__content--edit">
+        <%= f.label :name, 'データ容量' %>
+        <%= f.text_field :name %>
 
-  <%= f.label :name, 'データ容量' %>
-  <%= f.text_field :name %>
+        <%= f.submit %>
+      </div>
+    </div>
+    <% end %>
 
-  <%= f.submit %>
-<% end %>
-
-<%= link_to '新規作成', new_data_capacity_path %>
-<%= link_to '削除', data_capacity_path(@data_capacity), method: :delete, data: { confirm: '関連プランも削除されます。本当に削除しますか？' } %>
+    <%= link_to '新規作成', new_data_capacity_path %>
+    <%= link_to '削除', data_capacity_path(@data_capacity), method: :delete, data: { confirm: '関連プランも削除されます。本当に削除しますか？' } %>
+  </div>
+</div>

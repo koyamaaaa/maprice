@@ -1,8 +1,18 @@
-<%= link_to '新規作成', new_provider_path %>
-<div>
-  <% @providers.each do |provider| %>
+<div class="Admin">
+  <h1>プロバイダー一覧</h1>
+  <%= link_to '新規作成', new_provider_path, { class: "Admin__link" } %>
+  <div class="Admin__content">
+    <% @providers.each do |provider| %>
+    <div class="AdminCard">
+      <div class="AdminCard__top">
+        <h2><%= link_to provider.name, edit_provider_path(provider) %></h2>
+      </div>
+      <div class="AdminCard__content">
     <p>ID：<%= provider.id %></p>
-    <p>プロバイダー：<%= link_to provider.name, edit_provider_path(provider) %></p>
-    <p><%= link_to '削除', provider_path(provider), method: :delete, data: { confirm: '関連プランも削除されます。本当に削除しますか？' } %></p>
-  <% end %>
+          <p><%= link_to '削除', provider_path(provider), method: :delete, data: { confirm: '関連プランも削除されます。本当に削除しますか？' } %>
+          </p>
+      </div>
+    </div>
+    <% end %>
+  </div>
 </div>

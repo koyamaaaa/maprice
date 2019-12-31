@@ -1,16 +1,24 @@
-<%= form_with model: @campaign do |f| %>
+<div class="Admin">
+  <div class="Admin__content">
+    <%= form_with model: @campaign do |f| %>
+    <div class="AdminCard">
+      <div class="AdminCard__content--edit">
 
-  <%= f.label :name, 'キャンペーン' %>
-  <%= f.text_field :name %>
+        <%= f.label :name, 'キャンペーン' %>
+        <%= f.text_field :name %>
 
-  <%= f.label :cp_content, 'キャンペーン内容' %>
-  <%= f.text_field :cp_content %>
+        <%= f.label :cp_content, 'キャンペーン内容' %>
+        <%= f.text_field :cp_content %>
 
-  <%= f.label :provider_id, 'プロバイダー' %>
-  <%= f.collection_select :provider_id, Provider.all, :id, :name, { include_blank: '未選択' } %>
+        <%= f.label :provider_id, 'プロバイダー' %>
+        <%= f.collection_select :provider_id, Provider.all, :id, :name, { include_blank: '未選択' } %>
 
-  <%= f.submit %>
-<% end %>
+        <%= f.submit %>
+      </div>
+    </div>
+    <% end %>
 
-<%= link_to '新規作成', new_campaign_path %>
-<%= link_to '削除', campaign_path(@campaign), method: :delete, data: { confirm: '関連プランも削除されます。本当に削除しますか？' } %>
+    <%= link_to '新規作成', new_campaign_path %>
+    <%= link_to '削除', campaign_path(@campaign), method: :delete, data: { confirm: '関連プランも削除されます。本当に削除しますか？' } %>
+  </div>
+</div>

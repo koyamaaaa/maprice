@@ -1,13 +1,21 @@
-<%= form_with model: @device do |f| %>
+<div class="Admin">
+  <div class="Admin__content">
+    <%= form_with model: @device do |f| %>
+    <div class="AdminCard">
+      <div class="AdminCard__content--edit">
 
-  <%= f.label :name, '端末名' %>
-  <%= f.text_field :name %> 
+        <%= f.label :name, '端末名' %>
+        <%= f.text_field :name %>
 
-  <%= f.label :service_id, 'サービス名' %>
-  <%= f.collection_select :service_id, Service.all, :id, :name %> 
+        <%= f.label :service_id, 'サービス名' %>
+        <%= f.collection_select :service_id, Service.all, :id, :name %>
 
-  <%= f.submit %>
-<% end %>
+        <%= f.submit %>
+      </div>
+    </div>
+    <% end %>
 
-<%= link_to '新規作成', new_device_path %>
-<%= link_to '削除', device_path(@device), method: :delete, data: { confirm: '本当に削除しますか？' } %>
+    <%= link_to '新規作成', new_device_path %>
+    <%= link_to '削除', device_path(@device), method: :delete, data: { confirm: '本当に削除しますか？' } %>
+  </div>
+</div>

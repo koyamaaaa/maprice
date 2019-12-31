@@ -1,6 +1,18 @@
-<%= link_to '新規作成', new_net_line_path %>
-<% @net_lines.each do |net_line| %>
-  <p>ID：<%= net_line.id %></p>
-  <p>回線：<%= link_to net_line.name, edit_net_line_path(net_line) %></p>
-  <p><%= link_to '削除', net_line_path(net_line), method: :delete, data: { confirm: '関連プランも削除されます。本当に削除しますか？' } %></p>
-<% end %>
+<div class="Admin">
+  <h1>回線一覧</h1>
+  <%= link_to '新規作成', new_net_line_path %>
+  <div class="Admin__content">
+    <% @net_lines.each do |net_line| %>
+    <div class="AdminCard">
+      <div class="AdminCard__top">
+        <h2><%= link_to net_line.name, edit_net_line_path(net_line) %></h2>
+      </div>
+      <div class="AdminCard__content">
+        <p>ID：<%= net_line.id %></p>
+        <p><%= link_to '削除', net_line_path(net_line), method: :delete, data: { confirm: '関連プランも削除されます。本当に削除しますか？' } %>
+        </p>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
