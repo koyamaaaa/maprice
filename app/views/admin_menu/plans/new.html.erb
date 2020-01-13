@@ -1,4 +1,4 @@
-<%= form_with model: @plan, method: :post, local: true do |f| %>
+<%= form_with model: @plan, method: :post do |f| %>
 
   <%= f.label :name, 'プラン' %>
   <%= f.text_field :name %>
@@ -19,13 +19,13 @@
   <%= f.text_field :plan_url %>
 
   <%= f.label :campaign_ids %>
-  <%= collection_check_boxes :plan, :campaign_ids, Campaign.all, :id, :name %>
+  <%= f.collection_check_boxes :campaign_ids, Campaign.all, :id, :name %>
 
   <%= f.label :net_line_id %>
   <%= f.collection_select :net_line_id, NetLine.all, :id, :name %>
 
   <%= f.label :service_ids %>
-  <%= collection_check_boxes :plan, :service_ids, Service.all, :id, :name %>
+  <%= f.collection_check_boxes :service_ids, Service.all, :id, :name %>
 
   <%= f.label :data_capacity_id %>
   <%= f.collection_select :data_capacity_id, DataCapacity.all, :id, :name %>
@@ -34,7 +34,7 @@
   <%= f.collection_select :provider_id, Provider.all, :id, :name %>
 
   <%= f.label :device_ids %>
-  <%= collection_check_boxes :plan, :device_ids, Device.all, :id, :name %>
+  <%= f.collection_check_boxes :device_ids, Device.all, :id, :name %>
 
   <%= f.submit %>
 <% end %>
