@@ -8,15 +8,12 @@
   align-items: center;
   justify-content: center;
 
-  .Header__title {
-  }
-
 }
 
 @media (max-width: 768px){
 
-  .BaseLayout__header {
-    grid-area: head;
+ .Header__title {
+   font-size: 1.2rem;
   }
 
 }
