@@ -43,11 +43,19 @@
 }
 
 @media (max-width: 768px) {
+
   .SearchForm {
 
     .SearchForm__content {
       border-bottom: 1px solid #e6e5e5;
       padding: 15px;
     }
+
+    .SearchForm,
+    .SearchForm__title {
+      font-size: 0.8rem;
+    }
+    
   }
+
 }
