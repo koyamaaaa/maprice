@@ -17,9 +17,11 @@
     text-align: center;
     width: 10%;
   }
-
+  
+  .GlobalNavi__menu a,
   .GlobalNavi__menu a:visited {
     color: #fff;
+    font-size: 17px;
   }
   
 }
@@ -34,7 +36,7 @@
     -webkit-overflow-scrolling: touch;
 
     .GlobalNavi__menu {
-      border: solid 1px #e6e5e5;
+      border: solid 2px #fff;
       border-radius: 20px;
       display: inline-block;
       font-size: 0.8rem;

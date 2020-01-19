@@ -1,8 +1,8 @@
 @charset "UTF-8";
 
 .PlanDetailSidebar {
-  border: 1px solid #e6e5e5;
-  border-radius: 15px;;
+  background-color: #fff;
+  border-radius: 5px;
   display: inline;
   height: 72%;
   margin: 15px;
@@ -16,6 +16,10 @@
   input#label1 {
     display: none;
   }
+
+  .PlanDetailSidebar__rfutterbutton {
+    color: #656565;
+}
 
 }
 
