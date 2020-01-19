@@ -1,8 +1,8 @@
 @charset "UTF-8";
 
 .Sidebar {
-  border: 1px solid #e6e5e5;
-  border-radius: 15px;;
+  background-color: #fff;
+  border-radius: 5px;
   display: inline;
   height: 72%;
   margin: 15px;
@@ -22,6 +22,7 @@
 @media (max-width: 768px){
   .Sidebar {
     align-items: center;
+    background-color: #e9f3ff;
     border: none;
     display: grid;
     height: auto;
@@ -31,20 +32,19 @@
 
     label.Sidebar__dispswitch,
     label.Sidebar__dispswitch--standard {
+      background-color: #fff;
       border-radius: 17px;
-      border: 1px solid #e6e5e5;
       display: block;
       font-size: 0.8rem;
       margin: 0 auto;
-      padding: 10px;
+      padding: 15px;
       text-align: center;
     }
 
     input:checked ~ label.Sidebar__dispswitch,
     label.Sidebar__dispswitch--standard {
       border-radius: 17px;
-      border: 1px solid #e6e5e5;
-      padding: 10px;
+      padding: 15px;
       text-align: center;
     }
 
@@ -69,8 +69,8 @@
     }
 
     input:checked ~ .Sidebar__content {
-      border: 1px solid #e6e5e5;
-      border-radius: 15px;;
+      background-color: #fff;
+      border-radius: 5px;
       display: inline;
       margin-top: 10px;
       padding: 15px;
